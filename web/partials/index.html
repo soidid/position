@@ -1,0 +1,72 @@
+﻿<div class="ui inverted menu">
+  <a class="item" href="/">
+    IVOD 藍畫面
+  </a>
+  <div class="right menu">
+    <div class="item" ng-show="!user">
+      <a href=""></a>
+    </div>
+  </div>
+</div>
+
+<div class="ui segment" id="content_segment">
+  <div class="ui segment">
+  <p>革除 IVOD 藍畫面：點選任何一個藍畫面立委，打電話過去，告訴他們你拒絕立法院會議黑箱、IVOD藍畫面！</p>
+
+  <div class="mini ui button" ng-click="sesameToggle()">
+     芝麻的理想世界
+  </div>
+</div>
+
+
+
+  <div class="leg_collection">
+  <div class="leg_item" 
+       ng-class="{'KMT_item':n.party=='中國國民黨','DPP_item':n.party=='民主進步黨',
+                  'PFP_item':n.party=='親民黨','TSU_item':n.party=='台灣團結聯盟',
+                  'NP_item':n.party=='無','NPU_item':n.party=='無黨團結聯盟'}"
+       ng-repeat="n in legislators | filter:query"
+       ng-click="legClick(n.id)"
+       ng-show="n.name"
+       >
+     <img ng-src="{{n.avatar}}" class="leg_img" ng-show="n.state=='for'||sesame==true">
+     <div class="blue_ivod" ng-show="n.state=='against' && !sesame">
+          <div class="blue_ivod_text">
+          {{n.name}}<br/>
+          藍畫面
+          </div>
+     </div>
+     <div class="name" ng-show="n.state=='for' || sesame">{{n.name}}</div>
+     {{n.party}}
+  </div>
+  </div>
+
+  <div class="ui piled segment">
+  <h2>共同發起團體</h2>
+  <p>台灣人權促進會、民間司法改革基金會、媒體改造學社、婦女新知基金會、反貧困聯盟、公平稅改聯盟、台灣農村陣線</p>
+</div>
+
+  <!-- login alert box -->
+    <div id="alert_box">
+      <div class="ui small segment" id="alert_text">
+          <div class="ui form segment" id="info_form_segment">
+        
+             <p><b>{{data.name}}</b> 是 <b>{{data.eleDistrict}}</b> 的立委，請打電話施加壓力，要求開放IVOD，跟我們一起翻轉/革除藍畫面！</p>
+             
+             <center>
+              02-xxxx-xxxx<br/>
+             <div class="ui teal tiny button" id="cancel_button"
+                  ng-click="hide()">
+                馬上去
+             </div>
+             </center>
+             
+          </div>
+
+      </div>
+    </div>
+
+</div>
+
+  
+

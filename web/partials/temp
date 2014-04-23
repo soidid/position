@@ -1,0 +1,74 @@
+<div class="ui inverted menu">
+  <a class="item" href="/">
+    <i class="thumbs down outline icon"></i> IVOD 藍畫面
+  </a>
+  <div class="right menu">
+    <div class="item" ng-show="!user">
+      <a href="">登入</a>
+    </div>
+  </div>
+</div>
+
+<div class="ui segment">
+  <p>本站訴求（王希總指揮）</p>
+</div>
+
+<div class="ui celled grid">
+  <div class="row">
+
+    <div class="two wide column" style="">
+      搜尋：
+      <div class="ui input">
+        <input type="text" ng-model="query">
+      </div>
+      <div class="ui mini dropdown">
+        <br/>
+        <div class="text" name="select">選擇篩選條件</div>
+        <input type="hidden" name="select" ng-model="query2">
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item" ng-click="query2=''">顯示所有</div>
+         
+        </div>
+      </div>
+    </div>
+    <div class="fourteen wide column" style="">
+
+
+      <div class="left floated">根據選區、姓名等選擇您想進一步了解的立委</div>
+
+
+
+      <table class="ui sortable table segment">
+        <thead>
+          <tr>
+            <th>姓名</th>
+            <th>選區</th>
+            <th>範圍</th>
+            <th>黨籍</th>
+            <th>委員會</th>
+        </tr></thead>
+
+        <tbody>
+          <tr ng-repeat="n in legislators | filter:query | filter:query2">
+            <td><a href="#/legislators/{{n.id}}">
+                <img class="ui big avatar image" ng-src="{{n.avatar}}">{{n.name}}</a></td>
+            <td>{{n.eleDistrict}}</td>
+            <td>{{n.districtDetail}}</td>
+            <td>{{n.party}}</td>
+            <td>{{n.committee}}</td>
+          </tr>
+        </tbody>
+      </table>
+   </div>
+  </div>
+  <div class="one wide column" style="">
+  </div>
+
+</div>
+    </div>
+
+
+
+
+
