@@ -16,6 +16,10 @@
   <div class="mini ui button" ng-click="sesameToggle()">
      芝麻的理想世界
   </div>
+  搜尋：
+<div class="ui input" id="query_input">
+  <input type="text" placeholder="打字搜尋立委，例如：內湖、台北市" ng-model="query">
+</div>
 </div>
 
 
@@ -28,7 +32,13 @@
        ng-click="legClick(n.id)"
        ng-show="n.name"
        >
-     <img ng-src="{{n.avatar}}" class="leg_img" ng-show="n.state=='for'||sesame==true">
+       <div ng-hide="true">{{n.districtDetail}}</div>
+     <!--
+      <img ng-src="{{n.avatar}}" class="leg_img" ng-show="n.state=='for'||sesame==true">
+     -->
+
+      <img ng-src="https://raw.githubusercontent.com/soidid/LegiPhotos/master/8th/{{n.name}}.png" class="leg_img" ng-show="n.state=='for'||sesame==true">
+
      <div class="blue_ivod" ng-show="n.state=='against' && !sesame">
           <div class="blue_ivod_text">
           {{n.name}}<br/>
@@ -49,16 +59,29 @@
     <div id="alert_box">
       <div class="ui small segment" id="alert_text">
           <div class="ui form segment" id="info_form_segment">
-        
-             <p><b>{{data.name}}</b> 是 <b>{{data.eleDistrict}}</b> 的立委，請打電話施加壓力，要求開放IVOD，跟我們一起翻轉/革除藍畫面！</p>
-             
-             <center>
-              02-xxxx-xxxx<br/>
-             <div class="ui teal tiny button" id="cancel_button"
-                  ng-click="hide()">
-                馬上去
+             <div ng-show="data.state=='against'">
+                  <p><b>{{data.name}}</b> 是 <b>{{data.eleDistrict}}</b>      的立委，請打電話施加壓力，要求開放IVOD，跟我們一起翻轉/革除藍畫面！</p>
+                  
+                  <center>
+                   {{data.name}} 的國會辦公室電話：<br/>
+                   {{data.contact['國會研究室']['phone']}}<br/>
+                  <div class="ui teal tiny button" id="cancel_button"
+                       ng-click="hide()">
+                     關閉視窗
+                  </div>
+                  </center>
              </div>
-             </center>
+             <div ng-show="data.state=='for'">
+                  <p><b>{{data.name}}</b> 是 <b>{{data.eleDistrict}}</b>      的立委，已經表示同意要求開放IVOD，支持透明國會！</p>
+                  
+                  <center>
+                   
+                  <div class="ui teal tiny button" id="cancel_button"
+                       ng-click="hide()">
+                     關閉視窗
+                  </div>
+                  </center>
+             </div>
              
           </div>
 

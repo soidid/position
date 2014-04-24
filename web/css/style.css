@@ -246,6 +246,7 @@ p a {
 }
 .leg_img{
   width:80px;
+  height:100px;
 }
 .modal {
     /*display:    none;*/
@@ -272,7 +273,7 @@ p a {
                 no-repeat;
 }
 #alert_text{
-  width: 300px;
+  width: 350px;
   height: 210px;
   
   position: absolute;
@@ -289,7 +290,47 @@ p a {
 #cancel_button{
   margin-top: 5px;
 }
+table{
+  border: 1px solid gray;
+  margin:10px;
+}
+td,tr{
+  
+  border: 1px solid gray;
+ 
+}
+.table_item{
+  
+  border: 1px solid rgb(200,200,200);
+}
+.table_name{
+  margin: 0px;
+  width:100px;
+  display: inline-block;
+}
+.table_district{
+  width:120px;
+  display: inline-block;
+}
+.table_districtDetail{
+  width:300px;
+  display: inline-block;
+  margin:0;
+}
+.table_party_color{
+  margin-top: 5px;
+ width:25px;
+ height: 25px;
+ display: inline-block;
+}
+.table_party{
+ width:120px;
+ display: inline-block;
 
+}
+#query_input{
+  width:500px;
+}
 
 
 

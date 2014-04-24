@@ -1,0 +1,67 @@
+<div class="ui inverted menu">
+  <a class="item" href="#">
+    IVOD 藍畫面
+  </a>
+
+</div>
+
+<div class="ui segment">
+  <div class="ui segment">
+  <p>本站訴求（王希總指揮）</p>
+</div>
+搜尋：
+<div class="ui input" id="query_input">
+  <input type="text" placeholder="打字搜尋立委，例如：內湖、台北市" ng-model="query">
+</div>
+
+
+
+   <div class="table_item">
+     <div class="table_name">姓名</div>
+      <div class="table_party_color"></div>
+      <div class="table_party">黨籍</div>
+      <div class="table_district">選區</div>
+      <div class="table_districtDetail">範圍</div>
+    </div>
+
+    <div class="table_item" ng-repeat="n in legislators | filter:query">
+      <div class="table_name">
+          <img class="ui big avatar image" ng-src="{{n.avatar}}">{{n.name}}</div>
+      <div ng-class="{'KMT_item':n.party=='中國國民黨','DPP_item':n.party=='民主進步黨',
+                  'PFP_item':n.party=='親民黨','TSU_item':n.party=='台灣團結聯盟',
+                  'NP_item':n.party=='無','NPU_item':n.party=='無黨團結聯盟'}"
+                  class="table_party_color">
+      </div>
+      <div class="table_party">{{n.party}}</div>
+      <div class="table_district">{{n.eleDistrict}}</div>
+      <div class="table_districtDetail">{{n.districtDetail}}</div>
+
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+  $(function() {
+      var table = $('<table></table>');
+      table.append('<thead><tr><th class="number">Number</th></tr></thead>');
+      var tbody = $('<tbody></tbody>');
+      for(var i = 0; i<100; i++) {
+      tbody.append('<tr><td>' + Math.floor(Math.random() * 100) + '</td></tr>');
+      }
+      table.append(tbody);
+      $('.example.ex-2').append(table);
+
+      $('table').tablesort().data('tablesort');
+
+      $('thead th.number').data('sortBy', function(th, td, sorter) {
+        return parseInt(td.text(), 10);
+        });
+
+      });
+</script>
+
+
+
+
+
