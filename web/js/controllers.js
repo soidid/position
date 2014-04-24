@@ -10,8 +10,10 @@ ivodControllers.controller('indexCtrl', ['$scope', '$http',
       for(var i=0;i<data.length;i++){
          $scope.legislators[i]['id'] = i;
       }
+      $scope.data = $scope.legislators[37];//default, can modify to random
       
     });
+
 
     $scope.sesame = false;
     $scope.sesameToggle = function(){
@@ -20,7 +22,7 @@ ivodControllers.controller('indexCtrl', ['$scope', '$http',
     $scope.legClick = function(id){
       $scope.data = $scope.legislators[id];
      
-      $("#alert_box").show();
+      //$("#alert_box").show();
 
     };
     $scope.hide = function(){
