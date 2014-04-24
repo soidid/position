@@ -4,9 +4,11 @@ var ivodControllers = angular.module('ivodControllers',[]);
 ivodControllers.controller('indexCtrl', ['$scope', '$http',
   function ($scope, $http) {
     $scope.legislators=[];
-    $http.get('data/ly.json').success(function(data) {
+    $http.get('data/new.json').success(function(data) {
+      //console.log(data);
+      $scope.legislators = data;
       for(var i=0;i<data.length;i++){
-         $scope.legislators[data[i].id] = data[i];
+         $scope.legislators[i]['id'] = i;
       }
       
     });
