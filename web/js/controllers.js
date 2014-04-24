@@ -21,16 +21,32 @@ ivodControllers.controller('indexCtrl', ['$scope', '$http',
     };
     $scope.legClick = function(id){
       $scope.data = $scope.legislators[id];
-     
-      //$("#alert_box").show();
-
+       //$("#alert_box").show();
     };
     $scope.hide = function(){
       $("#alert_box").hide();
 
     };
-  
-  }
 
+
+    //keep top info segment fixed on top
+    $scope.nav = $("#nav_segment");
+    $(window).scroll(function () {
+      //console.log($(this).scrollTop());
+
+        console.log($(this).scrollTop())
+        if ($(this).scrollTop() > 68) {
+          $scope.nav.addClass("f-nav");
+          $scope.nav.removeClass("f-fix");
+        } else {
+          $scope.nav.removeClass("f-nav");
+          $scope.nav.addClass("f-fix");
+        }
+    });
+  
+
+
+
+  }
 ]);
 
