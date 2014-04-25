@@ -5,12 +5,14 @@
      ng-click="chooseParty(p)">{{p}}
 </div>
 -->
-
+<center>
 <div class="ui small menu">
   <a class="item" 
   ng-class="{'active':party_text==p}"
   ng-repeat="p in parties" ng-click="chooseParty(p)">{{p}}</a>
+
 </div>
+</center>
 <!--
 <div class="progress">
                   <div class="bar"
@@ -27,7 +29,7 @@
        {{(legislators | filter:query | filter:{'state':c,'party':party}).length}}
       </div>
     
-    <div class="avatar_collection">
+    <div class="avatar_collection" ng-class="{'avatar_collection_for':c=='for'}">
 
   <div class="avatar_item"
        ng-repeat="n in legislators | filter:query | filter:{'state':c,'party':party} | orderBy:'party'"
@@ -38,11 +40,11 @@
      <img class="avatar_image" ng-src="{{n.avatar}}" ng-show="n.avatar"
      ng-class="{'KMT_image':n.party=='中國國民黨','DPP_image':n.party=='民主進步黨',
                   'PFP_image':n.party=='親民黨','TSU_image':n.party=='台灣團結聯盟',
-                  'NP_image':n.party=='無','NPU_image':n.party=='無黨團結聯盟'}">
+                  'NP_image':n.party=='無黨籍','NPU_image':n.party=='無黨團結聯盟'}">
      <img class="avatar_image" ng-src="images/default.jpg" ng-hide="n.avatar"
           ng-class="{'KMT_image':n.party=='中國國民黨','DPP_image':n.party=='民主進步黨',
                   'PFP_image':n.party=='親民黨','TSU_image':n.party=='台灣團結聯盟',
-                  'NP_image':n.party=='無','NPU_image':n.party=='無黨團結聯盟'}"
+                  'NP_image':n.party=='無黨籍','NPU_image':n.party=='無黨團結聯盟'}"
                   >
 
      

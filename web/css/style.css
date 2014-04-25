@@ -371,9 +371,10 @@ p a {
 
 }
 #main_content{
-  margin-top: 150px;
   margin-bottom: 40px;
-
+}
+.main_content_margin{
+  margin-top: 150px;
 }
 .call_me_maybe{
   margin:5px;
@@ -381,7 +382,7 @@ p a {
 .call_each{
   display: inline-block;
   /* background: #FF7373; pink*/
-  background: rgb(200,200,200);
+  background: rgb(150,150,150);
   border-radius: 5px;
   color: white;
   margin: 5px;
@@ -401,7 +402,8 @@ p a {
   margin:0;
 
 }
-.avatar_collection{
+.avatar_collection_for{
+  text-align: right;
 
 }
 .avatar_item{
@@ -437,23 +439,70 @@ p a {
 }
 
 .progress {
-    width: 100%;
-    height: 5px;
+    width: 900px;
+    height: 15px;
     background: rgb(211,89,89);/* red */
-    
+    display: inline-block;
+
 }
 .bar {
     background:#7fbf7b;/* green *//* #00B25C; */
-    height: 5px;
+    height: 15px;
     color: white;
 }
 .title_for{
   color:#7fbf7b;
   font-size:20px;
+  text-align: right;
 }
 .title_against{
   color:rgb(211,89,89);
   font-size:20px;
+}
+.label_for{
+  color:#7fbf7b;
+  font-size:20px;
+  display: inline-block;
+}
+.label_against{
+  color:rgb(211,89,89);
+  font-size:20px;
+  display: inline-block;
+}
+.tiny_item{
+  display: inline-block;
+  width:10px;
+  height: 10px;
+  
+}
+
+.KMT_color_brick{
+  background: #3288bd;
+}
+.DPP_color_brick{
+  background: #7fbc41;
+}
+.PFP_color_brick{
+  background: orange;
+}
+.TSU_color_brick{
+  background: #b35806;
+}
+.NP_color_brick{
+  background: gray;
+}
+.NPU_color_brick{
+  background: rgba(194,15,81,0.9);
+}
+.tiny_collection{
+  min-height: 20px;
+}
+.tiniy_collection_for{
+  text-align: right;
+}
+.th_right{
+  
+  float: right;
 }
 
 

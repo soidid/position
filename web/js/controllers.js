@@ -18,7 +18,7 @@ ivodControllers.controller('indexCtrl', ['$scope', '$http',
     $scope.categories = ['for','against'];
     $scope.parties = ['全部','中國國民黨','民主進步黨','親民黨','台灣團結聯盟','無黨團結聯盟','無黨籍'];
    
-    $scope.mode = "state";//figure/list/blue/party
+    $scope.mode = "state";//figure/list/blue/state/party
     $scope.toggleMode = function(mode){
       $scope.mode = mode;
 
@@ -45,6 +45,12 @@ ivodControllers.controller('indexCtrl', ['$scope', '$http',
       $("#alert_box").hide();
 
     };
+    $scope.goback = function(){
+      var body = $("html, body");
+      body.animate({scrollTop:0}, '500', 'swing');
+
+    };
+
 
 
     //keep top info segment fixed on top
