@@ -3,6 +3,7 @@ var ivodControllers = angular.module('ivodControllers',[]);
 
 ivodControllers.controller('indexCtrl', ['$scope', '$http',
   function ($scope, $http) {
+    
     $scope.legislators=[];
     $http.get('data/final.json').success(function(data) {
       //console.log(data);
@@ -13,16 +14,27 @@ ivodControllers.controller('indexCtrl', ['$scope', '$http',
       $scope.data = $scope.legislators[37];//default, can modify to random
       
     });
+
+    $scope.categories = ['for','against'];
+    $scope.parties = ['全部','中國國民黨','民主進步黨','親民黨','台灣團結聯盟','無黨團結聯盟','無黨籍'];
    
-    $scope.mode = "blue";//figure/list/blue
+    $scope.mode = "state";//figure/list/blue/party
     $scope.toggleMode = function(mode){
       $scope.mode = mode;
 
     };
-
     $scope.showContact = true;
     $scope.toggleContact = function(){
         $scope.showContact = !$scope.showContact;
+    };
+    $scope.party = "";
+    $scope.party_text = "全部";
+    $scope.chooseParty = function(party){
+        
+        $scope.party = party;
+        $scope.party_text = party;
+        if(party=="全部")
+           $scope.party="";
     };
     $scope.legClick = function(id){
       $scope.data = {};
@@ -53,4 +65,3 @@ ivodControllers.controller('indexCtrl', ['$scope', '$http',
 
   }
 ]);
-

@@ -1,0 +1,33 @@
+
+<div class="ui two column divided grid" ng-show="mode=='party'">
+  <div class="row">
+
+    <div class="column" ng-repeat="c in categories">
+      <div class="ui large header" ng-show="c=='for'">支持</div>
+      <div class="ui large header" ng-show="c=='against'">反對</div>
+    
+    <div class="avatar_collection">
+  <div class="avatar_item"
+       ng-repeat="n in legislators | filter:query | filter:{'state':c} | orderBy:'party'"
+       ng-click="legClick(n.id)"
+       ng-show="n.name"
+       >
+
+     <img class="avatar_image" ng-src="{{n.avatar}}" ng-show="n.avatar"
+     ng-class="{'KMT_image':n.party=='中國國民黨','DPP_image':n.party=='民主進步黨',
+                  'PFP_image':n.party=='親民黨','TSU_image':n.party=='台灣團結聯盟',
+                  'NP_image':n.party=='無','NPU_image':n.party=='無黨團結聯盟'}">
+     <img class="avatar_image" ng-src="images/default.jpg" ng-hide="n.avatar"
+          ng-class="{'KMT_image':n.party=='中國國民黨','DPP_image':n.party=='民主進步黨',
+                  'PFP_image':n.party=='親民黨','TSU_image':n.party=='台灣團結聯盟',
+                  'NP_image':n.party=='無','NPU_image':n.party=='無黨團結聯盟'}"
+                  >
+
+     
+  </div>
+  </div><!--end of collection-->
+    </div>
+  </div>
+</div> 
+
+ 

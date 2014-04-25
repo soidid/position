@@ -16,6 +16,9 @@ ivodApp.config(['$routeProvider','$locationProvider',
       templateUrl: 'partials/list.html',
       controller: 'indexCtrl'
     }).
+      when('/about',{
+      templateUrl: 'partials/about.html'
+    }).
       otherwise({
       redirectTo:'/',
       templateUrl: 'partials/index.html',

@@ -1,3 +1,4 @@
+<div ng-show="mode=='list'">
 <div class="mini ui right floated button" ng-show="showContact" ng-click="toggleContact()">
   隱藏聯絡方式
 </div>
@@ -5,7 +6,7 @@
   顯示聯絡方式
 </div>
 <br/>
-<table class="ui compact table sortable segment" ng-show="mode=='list'">
+<table class="ui compact table sortable segment">
   <thead>
     <tr>
     <th>立場</th>
@@ -31,11 +32,11 @@
                {{key}}<br/>
                電話：{{value.phone}}<br/>
                傳真：{{value.fax}}<br/>
-               地址：{{value.address}}<br/></div></td>
-      
+               地址：{{value.address}}<br/></div></td>   
     </tr>
   </tbody>
 </table>
+</div>
 <!--
 <script type="text/javascript">
   $(function() {

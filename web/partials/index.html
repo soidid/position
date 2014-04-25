@@ -1,15 +1,6 @@
-﻿<div class="ui inverted menu">
-  <a class="item" href="/">
-    立委表態 | IVOD
-  </a>
-</div>
-
-<div class="ui segment" id="content_segment">
+﻿<div class="ui segment" id="content_segment">
   <div class="f-fix" id="nav_segment">
-     <div class="ui segment ">
-         <div ng-include="'partials/leg_top.html'"></div>
-        
-     </div>
+   <div ng-include="'partials/leg_top.html'"></div>
   </div>
 <!-- -->
 
@@ -21,10 +12,7 @@
 <div ng-include="'partials/blue.html'"></div>
 <div ng-include="'partials/figure.html'"></div>
 <div ng-include="'partials/list.html'"></div>
-  <div class="ui piled segment">
-  <h2>共同發起團體</h2>
-  <p>台灣人權促進會、民間司法改革基金會、媒體改造學社、婦女新知基金會、反貧困聯盟、公平稅改聯盟、台灣農村陣線</p>
-</div>
+<div ng-include="'partials/state.html'"></div>  
    
 <div class="nav">
 搜尋：
@@ -40,6 +28,10 @@
   <div class="mini ui button" ng-click="toggleMode('list')">
     列表
   </div>
+   <div class="mini ui button" ng-click="toggleMode('state')">
+    立場
+  </div>
+  
 </div>
 </div><!-- end of main-->
 
