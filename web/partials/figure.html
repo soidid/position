@@ -1,0 +1,25 @@
+<!-- //////////// FIGURE /////////////// -->
+
+  <div class="leg_collection" ng-show="mode=='figure'">
+  <div class="leg_item" 
+       ng-repeat="n in legislators | filter:query"
+       ng-click="legClick(n.id)"
+       ng-show="n.name"
+       >
+       <div class="ui left red corner label" ng-show="n.state=='against'">
+          <div class="text">反對</div>
+       </div>
+       <div class="ui left green corner label" ng-show="n.state=='for'">
+          <div class="text">支持</div>
+       </div>
+    
+     <div class="name">{{n.name}}</div>
+      <img ng-src="https://raw.githubusercontent.com/soidid/LegiPhotos/master/8th/{{n.name}}.png" class="leg_img" >
+
+   
+     
+     <div ng-class="{'KMT_item':n.party=='中國國民黨','DPP_item':n.party=='民主進步黨',
+                  'PFP_item':n.party=='親民黨','TSU_item':n.party=='台灣團結聯盟',
+                  'NP_item':n.party=='無','NPU_item':n.party=='無黨團結聯盟'}">{{n.party}}</div>
+  </div>
+  </div><!--end of leg collection-->

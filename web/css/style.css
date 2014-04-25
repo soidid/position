@@ -263,25 +263,9 @@ p a {
   width:100%;
   text-align: center;
   background: rgba(0,0,0,0.8);
+
 }
-.KMT_name{
-  background: #3288bd;
-}
-.DPP_name{
-  background: #7fbc41;
-}
-.PFP_name{
-  background: orange;
-}
-.TSU_name{
-  background: #b35806;
-}
-.NP_name{
-  background: gray;
-}
-.NPU_name{
-  background: rgba(194,15,81,0.9);
-}
+
 .leg_img{
   width:80px;
   height:100px;
@@ -332,46 +316,6 @@ p a {
 #cancel_button{
   margin-top: 5px;
 }
-table{
-  border: 1px solid gray;
-  margin:10px;
-}
-td,tr{
-
-  border: 1px solid gray;
-
-}
-.table_item{
-  border-radius: 5px;
-  border: 1px solid rgb(200,200,200);
-  padding: 5px;
-}
-.table_name{
-  margin: 0px;
-  width:100px;
-  display: inline-block;
-
-}
-.table_district{
-  width:150px;
-  display: inline-block;
-}
-.table_districtDetail{
-  width:300px;
-  display: inline-block;
-  margin:0;
-}
-.table_party_color{
-
- width:25px;
-
- display: inline-block;
-}
-.table_party{
- width:120px;
- display: inline-block;
-
-}
 #query_input{
   width:500px;
 }
@@ -401,12 +345,20 @@ td,tr{
 .f-nav{  /* To fix main menu container */
   position: fixed;
   top:0px;
-
 }
 .f-fix{
   position: absolute;
   top:10px;
 
+}
+.nav{
+  position: fixed;
+  bottom: 0px;
+  background: rgba(255,255,255,0.9);
+  padding: 4px;
+  width: 100%;
+  padding-top: 10px;
+  z-index: 100;
 }
 #main_content{
   margin-top: 180px;
@@ -426,7 +378,17 @@ td,tr{
 
 }
 
+/* ------- */
 
+.table_item{
+  cursor: pointer;
+}
+.table_districtDetail{
+  width:180px;
+  display: inline-block;
+  margin:0;
+
+}
 
 
 

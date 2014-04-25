@@ -1,0 +1,41 @@
+<div class="leg_item_block" >
+           <div class="leg_item">
+           <img ng-src="https://raw.githubusercontent.com/soidid/LegiPhotos/master/8th/{{data.name}}.png"
+           class="leg_img">
+           <div class="ui left red corner label" ng-show="data.state=='against'">
+          <div class="text">反對</div>
+       </div>
+       <div class="ui left green corner label" ng-show="data.state=='for'">
+          <div class="text">支持</div>
+       </div>
+           <div class="name">{{data.name}}</div>
+           <div ng-class="{'KMT_item':data.party=='中國國民黨','DPP_item':data.party=='民主進步黨',
+                  'PFP_item':data.party=='親民黨','TSU_item':data.party=='台灣團結聯盟',
+                  'NP_item':data.party=='無','NPU_item':data.party=='無黨團結聯盟'}">{{data.party}}
+          </div>
+           </div>
+    </div>
+         <div class="talk_block" ng-show="data">
+           <span class="talk_state" ng-show="data.state=='for'">
+             您好，我是{{data.name}}，是{{data.party}}，{{data.eleDistrict}}的立法委員。
+             我支持委員會透明化，IVOD 轉播不可以有藍畫面。我已經率先承諾支持推動此項國會改革，讓選民能夠檢視我在立         法院的一言一行，並對選民負責。
+           </span>
+           <span class="talk_state" ng-show="data.state=='against'">
+             您好，我是{{data.name}}，是{{data.party}}，{{data.eleDistrict}}的立法委員。
+             我反對立法院 IVOD 轉播系統公開透明，所以有時候，你其實看不到我開會的畫面、和發言喔！不過我想選民們應該 都很相信我的專業，即使部分黑箱也不會在意的。:)
+
+             <span class="talk_state" ng-show="data.district!='全國不分區'">
+               特別是我選區：{{data.district}} {{data.districtDetail}}的選民們，你們最支持不透明的國會了，對吧！>_^
+             </span>
+             <span class="talk_state" ng-show="data.district=='全國不分區'">
+               我是{{data.party}}{{data.district}}的立委，你對{{data.party}}政黨票的支持，就是對我的支持喔！
+             </span>
+           </span>
+         
+         <div class="call_me_maybe">
+
+            <div class="call_each" ng-repeat="(key,val) in data.contact">
+             <i class="phone icon"></i>{{key}}：{{val.phone}}
+            </div>
+         </div>
+          </div>

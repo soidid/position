@@ -5,94 +5,46 @@
 </div>
 
 <div class="ui segment" id="content_segment">
-  <div class="f-fix"  id="nav_segment">
+  <div class="f-fix" id="nav_segment">
      <div class="ui segment ">
-         <div class="leg_item_block" >
-           <img src="https://raw.githubusercontent.com/soidid/LegiPhotos/master/8th/{{data.name}}.png"
-           class="leg_img">
-           <div class="">{{data.name}}</div>
-           <div class="">{{data.party}}</div>
-         </div>
-         <div class="talk_block" ng-show="data">
-           <span class="talk_state" ng-show="data.state=='for'">
-             您好，我是{{data.name}}，是{{data.party}}，{{data.eleDistrict}}的立法委員。
-             我支持委員會透明化，IVOD 轉播不可以有藍畫面。我已經率先承諾支持推動此項國會改革，讓選民能夠檢視我在立         法院的一言一行，並對選民負責。
-           </span>
-           <span class="talk_state" ng-show="data.state=='against'">
-             您好，我是{{data.name}}，是{{data.party}}，{{data.eleDistrict}}的立法委員。
-             我反對立法院 IVOD 轉播系統公開透明，所以有時候，你其實看不到我開會的畫面、和發言喔！不過我想選民們應該 都很相信我的專業，即使部分黑箱也不會在意的。:)
-
-             <span class="talk_state" ng-show="data.district!='全國不分區'">
-               特別是我選區：{{data.district}} {{data.districtDetail}}的選民們，你們最支持不透明的國會了，對吧！>_^
-             </span>
-             <span class="talk_state" ng-show="data.district=='全國不分區'">
-               我是{{data.party}}{{data.district}}的立委，你對{{data.party}}政黨票的支持，就是對我的支持喔！
-             </span>
-           </span>
-         
-         <div class="call_me_maybe">
-
-            <div class="call_each" ng-repeat="(key,val) in data.contact">
-             <i class="phone icon"></i>{{key}}：{{val.phone}}
-            </div>
-         </div>
-         </div>
-         
+         <div ng-include="'partials/leg_top.html'"></div>
+        
      </div>
   </div>
 <!-- -->
+
+
 <div id="main_content">
 
-<p>革除 IVOD 藍畫面：點選任何一個藍畫面立委，打電話過去，告訴他們你拒絕立法院會議黑箱、IVOD藍畫面！</p>
 
-<div class="mini ui button" ng-click="sesameToggle()">
-  芝麻的理想世界
-</div>
-搜尋：
-<div class="ui input" id="query_input">
-  <input type="text" placeholder="打字搜尋立委，例如：內湖、台北市" ng-model="query">
-</div>
-<div class="mini ui button" ng-click="">
-  圖像
-</div>
-<div class="mini ui button" ng-click="">
-  列表
-</div>
-<br/><br/><br/>
-<!-- -->
 
-  <div class="leg_collection">
-  <div class="leg_item" 
-       
-       ng-repeat="n in legislators | filter:query"
-       ng-click="legClick(n.id)"
-       ng-show="n.name"
-       >
-       <div ng-hide="true">{{n.districtDetail}}</div>
-     <!--
-      <img ng-src="{{n.avatar}}" class="leg_img" ng-show="n.state=='for'||sesame==true">
-     -->
-     <div class="name" ng-show="n.state=='for' || sesame">{{n.name}}</div>
-      <img ng-src="https://raw.githubusercontent.com/soidid/LegiPhotos/master/8th/{{n.name}}.png" class="leg_img" ng-show="n.state=='for'||sesame==true">
-
-     <div class="blue_ivod" ng-show="n.state=='against' && !sesame">
-          <div class="blue_ivod_text">
-          {{n.name}}<br/>
-          藍畫面
-          </div>
-     </div>
-     
-     <div ng-class="{'KMT_item':n.party=='中國國民黨','DPP_item':n.party=='民主進步黨',
-                  'PFP_item':n.party=='親民黨','TSU_item':n.party=='台灣團結聯盟',
-                  'NP_item':n.party=='無','NPU_item':n.party=='無黨團結聯盟'}">{{n.party}}</div>
-  </div>
-  </div><!--end of leg collection-->
-
+<div ng-include="'partials/blue.html'"></div>
+<div ng-include="'partials/figure.html'"></div>
+<div ng-include="'partials/list.html'"></div>
   <div class="ui piled segment">
   <h2>共同發起團體</h2>
   <p>台灣人權促進會、民間司法改革基金會、媒體改造學社、婦女新知基金會、反貧困聯盟、公平稅改聯盟、台灣農村陣線</p>
 </div>
+   
+<div class="nav">
+搜尋：
+  <div class="ui input" id="query_input">
+    <input type="text" placeholder="打字搜尋立委，例如：內湖、台北市" ng-model="query">
+  </div>
+  <div class="mini ui button" ng-click="toggleMode('blue')">
+    藍畫面
+  </div>
+  <div class="mini ui button" ng-click="toggleMode('figure')">
+    圖像
+  </div>
+  <div class="mini ui button" ng-click="toggleMode('list')">
+    列表
+  </div>
+</div>
 </div><!-- end of main-->
+
+
+
 
   <!-- login alert box -->
     <div id="alert_box">

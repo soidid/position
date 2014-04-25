@@ -13,13 +13,19 @@ ivodControllers.controller('indexCtrl', ['$scope', '$http',
       $scope.data = $scope.legislators[37];//default, can modify to random
       
     });
+   
+    $scope.mode = "blue";//figure/list/blue
+    $scope.toggleMode = function(mode){
+      $scope.mode = mode;
 
+    };
 
-    $scope.sesame = false;
-    $scope.sesameToggle = function(){
-       $scope.sesame =!$scope.sesame;
+    $scope.showContact = true;
+    $scope.toggleContact = function(){
+        $scope.showContact = !$scope.showContact;
     };
     $scope.legClick = function(id){
+      $scope.data = {};
       $scope.data = $scope.legislators[id];
        //$("#alert_box").show();
     };
@@ -32,9 +38,7 @@ ivodControllers.controller('indexCtrl', ['$scope', '$http',
     //keep top info segment fixed on top
     $scope.nav = $("#nav_segment");
     $(window).scroll(function () {
-      //console.log($(this).scrollTop());
-
-        console.log($(this).scrollTop())
+     
         if ($(this).scrollTop() > 68) {
           $scope.nav.addClass("f-nav");
           $scope.nav.removeClass("f-fix");
