@@ -25,12 +25,13 @@
     </div>
 
     <div class="table_item" ng-repeat="n in legislators | filter:query">
-      <div class="table_name">
-          <img class="ui big avatar image" ng-src="{{n.avatar}}">{{n.name}}</div>
-      <div ng-class="{'KMT_item':n.party=='中國國民黨','DPP_item':n.party=='民主進步黨',
-                  'PFP_item':n.party=='親民黨','TSU_item':n.party=='台灣團結聯盟',
-                  'NP_item':n.party=='無','NPU_item':n.party=='無黨團結聯盟'}"
-                  class="table_party_color">
+      <div class="table_name"
+      ng-class="{'KMT_name':n.party=='中國國民黨','DPP_name':n.party=='民主進步黨',
+                  'PFP_name':n.party=='親民黨','TSU_name':n.party=='台灣團結聯盟',
+                  'NP_name':n.party=='無','NPU_name':n.party=='無黨團結聯盟'}">
+          <img class="ui big avatar image" ng-src="{{n.avatar}}">{{n.name}}
+      </div>
+      <div class="table_party_color">
       </div>
       <div class="table_party">{{n.party}}</div>
       <div class="table_district">{{n.eleDistrict}}</div>
