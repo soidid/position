@@ -1,4 +1,3 @@
-
 <div class="ui two column divided grid" ng-show="mode=='state'">
 <!-- 
 <div class="mini ui button"
@@ -6,18 +5,25 @@
      ng-click="chooseParty(p)">{{p}}
 </div>
 -->
+
 <div class="ui small menu">
   <a class="item" 
   ng-class="{'active':party_text==p}"
   ng-repeat="p in parties" ng-click="chooseParty(p)">{{p}}</a>
 </div>
-
-
+<!--
+<div class="progress">
+                  <div class="bar"
+                  style="width:
+{{(legislators| filter:query | filter:{'state':'for','party':party}).length/(legislators | filter:query | filter:{'party':party}).length * 100}}%;"></div>
+              </div>
+-->
   <div class="row">
+
     <div class="column" ng-repeat="c in categories">
-      <div class="ui header" ng-show="c=='for'">支持
+      <div class="title_for" ng-show="c=='for'">支持
        {{(legislators | filter:query | filter:{'state':c,'party':party}).length}}</div>
-      <div class="ui header" ng-show="c=='against'">反對
+      <div class="title_against" ng-show="c=='against'">反對
        {{(legislators | filter:query | filter:{'state':c,'party':party}).length}}
       </div>
     
