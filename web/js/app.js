@@ -2,7 +2,9 @@
 
 var ivodApp = angular.module("ivodApp", [
   'ngRoute',
+  'lyServices',
   'ivodControllers'
+
 ]);
 
 ivodApp.config(['$routeProvider','$locationProvider',
