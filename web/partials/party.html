@@ -9,11 +9,11 @@
     <tr ng-repeat="p in parties" ng-show="p !='全部'">
       <td>{{p}}</td>
       <td ng-repeat="c in categories" ng-class="{'tiniy_collection_for':c=='for'}">
-        <div class="tiny_num">{{(legislators| filter:query | filter:{'state':c,'party':p}).length}}</div>
+        <div class="tiny_num">{{(legislators| filter:query | filter:{'position':c,'party':p}).length}}</div>
       
         <div class="tiny_collection">
         <div class="tiny_item"
-        ng-repeat="n in legislators | filter:query | filter:{'state':c,'party':p} | orderBy:'party'"
+        ng-repeat="n in legislators | filter:query | filter:{'position':c,'party':p} | orderBy:'party'"
         ng-click="legClick(n.id)"
         ng-show="n.name"
         ng-class="{'KMT_color_brick':n.party=='中國國民黨','DPP_color_brick':n.party=='民主進步黨',

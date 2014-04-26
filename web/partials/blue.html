@@ -8,11 +8,11 @@
        ng-show="n.name"
        >
     
-     <div class="name" ng-show="n.state=='for'">{{n.name}}</div>
+     <div class="name" ng-show="n.position=='for'">{{n.name}}</div>
       <img ng-src="https://raw.githubusercontent.com/soidid/LegiPhotos/master/8th/{{n.name}}.png" 
-           class="leg_img" ng-show="n.state=='for'">
+           class="leg_img" ng-show="n.position=='for'">
 
-     <div class="blue_ivod" ng-show="n.state=='against'">
+     <div class="blue_ivod" ng-show="n.position=='against'">
           <div class="blue_ivod_text">
           {{n.name}}<br/>
           藍畫面

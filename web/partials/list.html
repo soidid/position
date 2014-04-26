@@ -19,14 +19,14 @@
   </tr></thead>
   <tbody>
     <tr ng-repeat="n in legislators | filter:query" ng-click="legClick(n.id)" class="table_item">
-      <td ng-class="{'negative':n.state == 'against','positive':n.state == 'for'}">
-          <span ng-show="n.state == 'for'">支持</span>
-          <span ng-show="n.state == 'against'">反對</span></td>
+      <td ng-class="{'negative':n.position == 'against','positive':n.position == 'for'}">
+          <span ng-show="n.position == 'for'">支持</span>
+          <span ng-show="n.position == 'against'">反對</span></td>
       <td><img class="ui big avatar image" ng-src="{{n.avatar}}"></td>
       <td>{{n.name}}</td>
       <td>{{n.party}}</td>
-      <td>{{n.eleDistrict}}</td>
-      <td><span class="table_districtDetail">{{n.district}} {{n.districtDetail}}</span></td>
+      <td>{{n.constituency}}</td>
+      <td><span class="table_districtDetail">{{n.constituency_detail}}</span></td>
       <td ng-show="showContact"><div ng-show="n.contact"
                ng-repeat="(key,value) in n.contact">
                {{key}}<br/>

@@ -1,4 +1,4 @@
-<div class="ui two column divided grid" ng-show="mode=='state'">
+<div class="ui two column divided grid" ng-show="mode=='position'">
 <!-- 
 <div class="mini ui button"
      ng-repeat="p in parties" 
@@ -24,15 +24,15 @@
 
     <div class="column" ng-repeat="c in categories">
       <div class="title_for" ng-show="c=='for'">支持
-       {{(legislators | filter:query | filter:{'state':c,'party':party}).length}}</div>
+       {{(legislators | filter:query | filter:{'position':c,'party':party}).length}}</div>
       <div class="title_against" ng-show="c=='against'">反對
-       {{(legislators | filter:query | filter:{'state':c,'party':party}).length}}
+       {{(legislators | filter:query | filter:{'position':c,'party':party}).length}}
       </div>
     
     <div class="avatar_collection" ng-class="{'avatar_collection_for':c=='for'}">
 
   <div class="avatar_item"
-       ng-repeat="n in legislators | filter:query | filter:{'state':c,'party':party} | orderBy:'party'"
+       ng-repeat="n in legislators | filter:query | filter:{'position':c,'party':party} | orderBy:'party'"
        ng-click="legClick(n.id)"
        ng-show="n.name"
        >
