@@ -49,35 +49,15 @@
     <div id="alert_box">
       <div class="ui small segment" id="alert_text">
           <div class="ui form segment" id="info_form_segment">
-             <div ng-show="data.state=='against'">
-                  <p><b>{{data.name}}</b> 是 <b>{{data.eleDistrict}}</b>      的立委，請打電話施加壓力，要求開放IVOD，跟我們一起翻轉/革除藍畫面！</p>
+              <div ng-include="'partials/leg_top.html'"></div> 
+              <div class="ui teal tiny button" id="cancel_button"
+                   ng-click="hide()">關閉視窗</div>
                   
-                  <center>
-                   {{data.name}} 的國會辦公室電話：<br/>
-                   {{data.contact['國會研究室']['phone']}}<br/>
-                  <div class="ui teal tiny button" id="cancel_button"
-                       ng-click="hide()">
-                     關閉視窗
-                  </div>
-                  </center>
-             </div>
-             <div ng-show="data.state=='for'">
-                  <p><b>{{data.name}}</b> 是 <b>{{data.eleDistrict}}</b>      的立委，已經表示同意要求開放IVOD，支持透明國會！</p>
-                  
-                  <center>
-                   
-                  <div class="ui teal tiny button" id="cancel_button"
-                       ng-click="hide()">
-                     關閉視窗
-                  </div>
-                  </center>
-             </div>
-             
           </div>
 
       </div>
     </div>
-</div>
+</div><!-- end of main content
 
   
 

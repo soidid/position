@@ -2,6 +2,8 @@ var ivodControllers = angular.module('ivodControllers',[]);
 
 ivodControllers.controller('indexCtrl', ['$scope', 'lyData','$http',
   function ($scope,lyData, $http) {
+
+    $("#talk_block").css("width","600px");
    
     lyData.getData().then(function(data){
       $scope.legislators = data;
@@ -36,7 +38,7 @@ ivodControllers.controller('indexCtrl', ['$scope', 'lyData','$http',
     $scope.legClick = function(id){
       $scope.data = {};
       $scope.data = $scope.legislators[id];
-       //$("#alert_box").show();
+      //$("#alert_box").show();
     };
     $scope.hide = function(){
       $("#alert_box").hide();

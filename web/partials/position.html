@@ -37,15 +37,10 @@
        ng-show="n.name"
        >
 
-     <img class="avatar_image" ng-src="{{n.avatar}}" ng-show="n.avatar"
+     <img class="avatar_image" ng-src="https://raw.githubusercontent.com/soidid/LegiPhotos/master/8th/avatar/{{n.name}}.png" 
      ng-class="{'KMT_image':n.party=='中國國民黨','DPP_image':n.party=='民主進步黨',
                   'PFP_image':n.party=='親民黨','TSU_image':n.party=='台灣團結聯盟',
                   'NP_image':n.party=='無黨籍','NPU_image':n.party=='無黨團結聯盟'}">
-     <img class="avatar_image" ng-src="images/default.jpg" ng-hide="n.avatar"
-          ng-class="{'KMT_image':n.party=='中國國民黨','DPP_image':n.party=='民主進步黨',
-                  'PFP_image':n.party=='親民黨','TSU_image':n.party=='台灣團結聯盟',
-                  'NP_image':n.party=='無黨籍','NPU_image':n.party=='無黨團結聯盟'}"
-                  >
 
      
   </div>

@@ -215,14 +215,6 @@ p a {
   position: relative;
 }
 
-.leg_item_block{
-
-  display: inline-block;
-  width:80px;
-  font-size: 12px;
-  text-align: center;
-  float:left;
-}
 .KMT_item{
   background: #3288bd;
 }
@@ -299,7 +291,7 @@ p a {
                 no-repeat;
 }
 #alert_text{
-  width: 350px;
+  width: 100%;
   height: 210px;
 
   position: absolute;
@@ -319,6 +311,14 @@ p a {
 #query_input{
   width:500px;
 }
+
+.leg_item_top{
+  display: inline-block;
+  width:80px;
+  font-size: 12px;
+  text-align: center;
+  float:left;
+}
 .talk_block{
   border: 4px solid rgb(230,230,230);
   border-top-right-radius:15px;
@@ -326,15 +326,14 @@ p a {
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
   display: inline-block;
-  width:88%;
-
-  margin-left: 20px;
   padding: 2px;
+  width:100%;
+ 
 
 }
 .talk_state{
-
-  display: inline-block;
+  
+  
 
 }
 #nav_segment{
@@ -415,26 +414,33 @@ p a {
 }
 .avatar_image{
   width:40px;
+  height: 40px;
   border: 10px;
   border-radius: 10px;
 
 }
 .KMT_image{
+  border: 1px solid #3288bd;
   border-bottom:4px solid #3288bd;
 }
 .DPP_image{
+  border: 1px solid #7fbc41;
   border-bottom:4px solid #7fbc41;
 }
 .PFP_image{
+  border: 1px solid orange;
   border-bottom:4px solid orange;
 }
 .TSU_image{
+  border: 1px solid #b35806;
   border-bottom:4px solid #b35806;
 }
 .NP_image{
+  border: 1px solid gray;
   border-bottom:4px solid gray;
 }
 .NPU_image{
+  border: 1px solid rgba(194,15,81,0.9);
   border-bottom:4px solid rgba(194,15,81,0.9);
 }
 
