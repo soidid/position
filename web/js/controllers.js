@@ -3,15 +3,42 @@ var ivodControllers = angular.module('ivodControllers',[]);
 ivodControllers.controller('indexCtrl', ['$scope', 'lyData','$http',
   function ($scope,lyData, $http) {
 
-    $("#talk_block").css("width","600px");
-   
-    lyData.getData().then(function(data){
-      $scope.legislators = data;
-      for(var i=0;i<$scope.legislators.length;i++){
-         $scope.legislators[i]['id'] = i;
-      }
-      $scope.data = $scope.legislators[37];//default, can modify to random
+    
+    $scope.setMargin = function(){
+       console.log("SET MARGIN");
+       var nav_height = $("#nav_segment").css("height");
+       nav_height = parseInt(nav_height.split("px")[0]) + 10 + "px";
+       $("#main_content").css("margin-top",nav_height);
+    };
+
+  
+    $( window ).resize(function() {
+       //console.log($( window ).width());
+       $scope.setMargin();
     });
+   
+   $scope.legislators = [];
+    if($scope.legislators.length==0){
+    lyData.getData().then(function(data){
+      
+         $scope.legislators = data;
+         for(var i=0;i<$scope.legislators.length;i++){
+            $scope.legislators[i]['id'] = i;
+         }
+      
+      $scope.data = $scope.legislators[37];//default, can modify to random
+
+    });
+  }
+  $scope.groups = [];
+    if($scope.groups.length==0){
+    lyData.getGroup().then(function(data){
+      
+         $scope.groups = data;
+         
+
+    });
+  }
   
 
     $scope.categories = ['for','against'];
@@ -20,6 +47,7 @@ ivodControllers.controller('indexCtrl', ['$scope', 'lyData','$http',
     $scope.mode = "position";//figure/list/blue/position/party
     $scope.toggleMode = function(mode){
       $scope.mode = mode;
+      $scope.setMargin();
 
     };
     $scope.showContact = true;
@@ -40,6 +68,9 @@ ivodControllers.controller('indexCtrl', ['$scope', 'lyData','$http',
       $scope.data = $scope.legislators[id];
       //$("#alert_box").show();
     };
+    
+
+
     $scope.hide = function(){
       $("#alert_box").hide();
 

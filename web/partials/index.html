@@ -4,10 +4,7 @@
   </div>
 <!-- -->
 
-
-<div id="main_content" ng-class="{'main_content_margin':mode!='party'}">
-
-
+<div id="main_content" class="main_content_margin">
 
 <div ng-include="'partials/blue.html'"></div>
 <div ng-include="'partials/figure.html'"></div>
@@ -43,20 +40,17 @@
 </div><!-- end of main-->
 
 
-
-
-  <!-- login alert box -->
+<!-- alert box -->
     <div id="alert_box">
       <div class="ui small segment" id="alert_text">
           <div class="ui form segment" id="info_form_segment">
               <div ng-include="'partials/leg_top.html'"></div> 
               <div class="ui teal tiny button" id="cancel_button"
-                   ng-click="hide()">關閉視窗</div>
-                  
+                   ng-click="hide()">關閉視窗</div>     
           </div>
-
       </div>
     </div>
+<!-- end of alert box -->
 </div><!-- end of main content
 
   

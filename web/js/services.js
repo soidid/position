@@ -3,6 +3,7 @@ var lyServices = angular.module('lyServices', []);
 lyServices.factory('lyData', ['$http','$q',function($http, $q){
     var info_url = "data/ly-info.json";
     var position_url = "data/ly-position.json";
+    var group_url = "data/group.json";
     var data = [];
     iso3166tw = {
     "CHA": "彰化縣",
@@ -91,6 +92,7 @@ lyServices.factory('lyData', ['$http','$q',function($http, $q){
       return -1;
     };
     function parse(info_data,position_data){
+        data = [];
         
         $.each(info_data, function (key, val) {
             var new_item = {};
@@ -128,7 +130,16 @@ lyServices.factory('lyData', ['$http','$q',function($http, $q){
         return deferred.promise;
         
     };
-    return { getData: getData };
+    var getGroup = function(){
+        var deferred = $q.defer();
+        $http({method:"GET", url:group_url}).success(function(group_data){
+             deferred.resolve(group_data);
+
+        });
+        return deferred.promise;
+
+    };
+    return { getData: getData, getGroup:getGroup };
     
 
  }]);
