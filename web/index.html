@@ -30,19 +30,31 @@
 
     <!-- Sort Tables -->
     <script src="js/jquery.tablesort.js"></script>
-   
-   
-
 
 </head>
 <body>
-    <div class="ui inverted menu">
-  <a class="item" href="index.html#/">
+
+
+<div class="ui inverted menu" ng-controller="navCtrl">
+
+  <a class="item" href="index.html#/" ng-class="{'active':nav_cat=='index'}" ng-click="toggleNav('index')">
     立委表態 | IVOD
   </a>
-  <a class="item" href="index.html#/about">
-    關於
+  <a class="item" href="index.html#/about" ng-class="{'active':nav_cat=='about'}" ng-click="toggleNav('about')">
+    議題說明
   </a>
+  <a class="item" href="index.html#/data" ng-class="{'active':nav_cat=='data'}" ng-click="toggleNav('data')">
+    立場統計方式
+  </a>
+  <a class="item" href="index.html#/contact" ng-class="{'active':nav_cat=='contact'}" ng-click="toggleNav('contact')">
+    聯絡
+  </a>
+ 
+   <div class="right menu">
+        <div class="item">
+          <a href="http://to.13pa.tw/" target="_blank">我想罷免</a>
+        </div>
+   </div>
 </div>
 
     <div ng-view></div>

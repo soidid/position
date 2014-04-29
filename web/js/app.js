@@ -22,6 +22,12 @@ ivodApp.config(['$routeProvider','$locationProvider',
       templateUrl: 'partials/about.html',
       controller: 'aboutCtrl'
     }).
+      when('/data',{
+      templateUrl: 'partials/data.html'
+    }).
+      when('/contact',{
+      templateUrl: 'partials/contact.html'
+    }).
       otherwise({
       redirectTo:'/',
       templateUrl: 'partials/index.html',

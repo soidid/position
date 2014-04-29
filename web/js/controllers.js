@@ -116,3 +116,17 @@ ivodControllers.controller('aboutCtrl', ['$scope', 'lyData','$http',
 
   }
 ]);   
+
+ivodControllers.controller('navCtrl', ['$scope',
+  function ($scope) {
+     
+     $scope.nav_cat = "index";
+
+     $scope.toggleNav = function(choice){
+
+        $scope.nav_cat = choice;
+
+     };
+
+  }
+]); 
