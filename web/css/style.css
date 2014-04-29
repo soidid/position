@@ -291,7 +291,7 @@ p a {
                 no-repeat;
 }
 #alert_text{
-  width: 100%;
+  width: 400px;
   height: 210px;
 
   position: absolute;
@@ -306,7 +306,11 @@ p a {
   height: 175px;
 }
 #cancel_button{
-  margin-top: 5px;
+
+  position: absolute;
+  top:10px;
+  left:92%;
+  cursor: pointer;
 }
 #query_input{
   width:500px;

@@ -66,20 +66,40 @@
 
 
 <h2 class="ui dividing header"><i class="user icon"></i>共同發起團體</h2>
-<p>{{groups}}<a ng-repeat="g in groups" href="{{g.website}}">{{g.name}}</a></p>
-<div class="join_us">
+<p>
+<div class="ui horizontal bulleted list">
+  <div class="item" ng-repeat="g in groups" >
+    <a href="{{g.website}}" target="_blank">{{g.name}}</a>
+  </div>
+</div>
+</p>
+
+<div class="join_us" ng-click="contact()">
   加入共同發起團體
 </div>
 
 </div>
 
 <div class="footer">
-<div class="tiny ui button">
+<div class="tiny ui button" ng-click="contact()">
   聯絡我們
 </div>
-<div class="tiny ui button">
+<div class="tiny ui button" ng-click="goback()">
   回到頁首
 </div>
 </div>
 </center>
 
+
+<!-- alert box -->
+<div id="alert_box">
+  <div class="ui small segment" id="alert_text">
+    <div class="ui form segment" id="info_form_segment">
+       <i class="cancel circle basic icon" ng-click="hide()" id="cancel_button"></i>
+       <p>加入共同發起團體：abc@info.com</p> 
+       <p>聯絡：abc@info.com</p> 
+       <p>錯誤回報：abc@info.com</p>   
+    </div>
+  </div>
+</div>
+<!-- end of alert box -->

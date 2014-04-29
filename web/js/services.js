@@ -133,7 +133,8 @@ lyServices.factory('lyData', ['$http','$q',function($http, $q){
     var getGroup = function(){
         var deferred = $q.defer();
         $http({method:"GET", url:group_url}).success(function(group_data){
-             deferred.resolve(group_data);
+            console.log("success");
+            deferred.resolve(group_data);
 
         });
         return deferred.promise;
