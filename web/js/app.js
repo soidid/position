@@ -6,8 +6,9 @@ var ivodApp = angular.module("ivodApp", [
   'ivodControllers'
 ]);
 
-ivodApp.config(['$stateProvider', '$urlRouterProvider',
-  function($stateProvider, $urlRouterProvider){
+ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
+  function($stateProvider, $urlRouterProvider, $locationProvider){
+    $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise("/");
     $stateProvider.
       state('index',{
@@ -94,7 +95,7 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider',
       templateUrl: 'partials/legi.html',
       controller: 'legCtrl'
     });
-    
+
 
 
 }]);
