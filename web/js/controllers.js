@@ -1,4 +1,6 @@
-var ivodControllers = angular.module('ivodControllers',[]);
+var ivodControllers = angular.module('ivodControllers',[
+  'ui.router'
+]);
 
 ivodControllers.controller('indexCtrl', ['$scope', 'lyData','$http',
   function ($scope,lyData, $http) {
@@ -117,16 +119,8 @@ ivodControllers.controller('aboutCtrl', ['$scope', 'lyData','$http',
   }
 ]);   
 
-ivodControllers.controller('navCtrl', ['$scope',
-  function ($scope) {
-     
-     $scope.nav_cat = "index";
-
-     $scope.toggleNav = function(choice){
-
-        $scope.nav_cat = choice;
-
-     };
-
+ivodControllers.controller('navCtrl', ['$scope', '$state',
+  function ($scope, $state) {
+     $scope.$state = $state;
   }
 ]); 
