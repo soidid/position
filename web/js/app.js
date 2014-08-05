@@ -39,7 +39,7 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider',
       controller: 'legCtrl'
     }).
       state('legi.legId',{
-      url: '/legi/legId',
+      url: ':legId',
       templateUrl: 'partials/legi.html',
       controller: 'legCtrl'
     });
