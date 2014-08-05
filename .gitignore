@@ -1,3 +1,5 @@
+node_modules/
+public/
 web/web-server.js
 web/test
 .DS_Store
