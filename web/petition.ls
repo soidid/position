@@ -1,4 +1,4 @@
-{ div, img, form, button, label, input, span } = React.DOM
+{ div, img, form, button, label, input, span, em } = React.DOM
 
 firebaseApp = 'https://petition.firebaseio.com/'
 
@@ -57,9 +57,10 @@ PetitionList = React.createClass do
       unless hiddenMe
         count := count + 1
         Petitioner author: displayName, avatar: avatarURL
-    div {className: 'petition-list'}, "目前已經有 #{@props.data.length} 人連署",
+    div {className: 'petition-list'},
+      div {className: 'issue-petitioners'}, "目前已經有 #{@props.data.length} 人連署"
       { personNodes }
-      span {}, "還有#{@props.data.length - count}人未顯示。"
+      span {className: 'more'}, "...以及其他#{@props.data.length - count}人。" if @props.data.length - count > 0
 
 Petitioner = React.createClass do
   displayName: 'PetitionPerson'
