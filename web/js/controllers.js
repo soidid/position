@@ -33,7 +33,7 @@ ivodControllers.controller('indexCtrl', ['$scope', 'lyData','$http',
         });
     }
 
-    $scope.categories = ['for','against'];
+    $scope.categories = ['for','pending','against'];
     $scope.parties = ['全部','中國國民黨','民主進步黨','親民黨','台灣團結聯盟','無黨團結聯盟','無黨籍'];
 
     $scope.mode = "position";//figure/list/blue/position/party
