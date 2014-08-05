@@ -33,17 +33,17 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider',
       url: '/contact',
       templateUrl: 'partials/contact.html'
     }).
-      when('/legi/:legId',{
+      state('legi',{
+      url: '/legi',
       templateUrl: 'partials/legi.html',
       controller: 'legCtrl'
     }).
-      otherwise({
-      redirectTo:'/',
-      templateUrl: 'partials/index.html',
-      controller: 'legiCtrl'
+      state('legi.legId',{
+      url: '/legi/legId',
+      templateUrl: 'partials/legi.html',
+      controller: 'legCtrl'
     });
-    $locationProvider.html5Mode(false)
-                     .hashPrefix('!');
+    
 
 
 }]);
