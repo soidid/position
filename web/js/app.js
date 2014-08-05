@@ -12,6 +12,57 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider',
     $stateProvider.
       state('index',{
       url: '/',
+      data: {
+        text: '全部'
+      },
+      templateUrl: 'partials/index.html',
+      controller: 'indexCtrl'
+    }).
+      state('index.kmt',{
+      url: 'kmt',
+      data: {
+        text: '中國國民黨'
+      },
+      templateUrl: 'partials/index.html',
+      controller: 'indexCtrl'
+    }).
+      state('index.dpp',{
+      url: 'dpp',
+      data: {
+        text: '民主進步黨'
+      },
+      templateUrl: 'partials/index.html',
+      controller: 'indexCtrl'
+    }).
+      state('index.pfp',{
+      url: 'pfp',
+      data: {
+        text: '親民黨'
+      },
+      templateUrl: 'partials/index.html',
+      controller: 'indexCtrl'
+    }).
+      state('index.tsu',{
+      url: 'tsu',
+      data: {
+        text: '台灣團結聯盟'
+      },
+      templateUrl: 'partials/index.html',
+      controller: 'indexCtrl'
+    }).
+      state('index.npsu',{
+      url: 'npsu',
+      data: {
+        text: '無黨團結聯盟'
+      },
+      templateUrl: 'partials/index.html',
+      controller: 'indexCtrl'
+    }).
+      state('index.no-party',{
+      url: 'no-party',
+      data: {
+        text: '無黨籍'
+      },
       templateUrl: 'partials/index.html',
       controller: 'indexCtrl'
     }).

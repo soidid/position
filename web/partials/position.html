@@ -1,15 +1,9 @@
 <div class="ui two column divided grid" id="main_segment">
-<!-- 
-<div class="mini ui button"
-     ng-repeat="p in parties" 
-     ng-click="chooseParty(p)">{{p}}
-</div>
--->
 <center>
 <div class="ui small menu">
   <a class="item" 
-  ng-class="{'active':party_text==p}"
-  ng-repeat="p in parties" ng-click="chooseParty(p)">{{p}}</a>
+  ui-sref-active="active"
+  ng-repeat="p in parties" ui-sref="{{p}}">{{$state.get(p).data.text}}</a>
 
 </div>
 </center>
@@ -25,16 +19,16 @@
     <div class="column" ng-repeat="c in categories">
 
       <div class="title_for" ng-show="c=='for'">支持
-       {{(legislators | filter:query | filter:{'position':c,'party':party}).length}}</div>
+       {{(legislators | byParty | filter:query | filter:{'position':c}).length}}</div>
       <div class="title_pending" ng-show="c=='pending'">未表態
-       {{(legislators | filter:query | filter:{'position':c,'party':party}).length}}</div>
+       {{(legislators | byParty | filter:query | filter:{'position':c}).length}}</div>
       <div class="title_against" ng-show="c=='against'">反對
-       {{(legislators | filter:query | filter:{'position':c,'party':party}).length}}</div>
+       {{(legislators | byParty | filter:query | filter:{'position':c}).length}}</div>
     
     <div class="avatar_collection" ng-class="{'avatar_collection_for':c=='for'}">
 
       <div class="avatar_item" 
-       ng-repeat="n in legislators | filter:query | filter:{'position':c,'party':party} | orderBy:'party'"
+       ng-repeat="n in legislators | byParty:party | filter:query | filter:{'position':c} | orderBy:'party'"
        ng-click="legClick(n.id)"
        ng-show="n.name"
        ng-class="{'avatar_item_active':isActiveLeg(n.id)}"
