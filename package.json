@@ -10,7 +10,10 @@
   },
   "devDependencies": {
     "express": "^4.7.4",
-    "gulp-livescript": "^1.0.3"
+    "gulp-livescript": "^1.0.3",
+    "gulp-if": "~1.2.4",
+    "gulp-concat": "~2.3.4",
+    "gulp-jsmin": "~0.1.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
