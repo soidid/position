@@ -45,18 +45,21 @@ PetitionApp = React.createClass do
           displayName: @state.user.displayName
           email: @state.user.thirdPartyUserData.email
           avatarURL: @state.user.thirdPartyUserData.picture.data.url
-      div {}, '我已連署過' if @state.isPetitioned
+      div {}, '我已連署過' if @state.isPetitioned and @state.user
       PetitionList data: @state.data
 
 
 PetitionList = React.createClass do
   displayName: 'PetitionList'
   render: ->
-    personNodes = @props.data.map ({displayName, avatarURL}:petitioner) ->
-      Petitioner author: displayName, avatar: avatarURL
-    div {className: 'petition-list'},
+    count = 0
+    personNodes = @props.data.map ({displayName, avatarURL, hiddenMe}:petitioner) ->
+      unless hiddenMe
+        count := count + 1
+        Petitioner author: displayName, avatar: avatarURL
+    div {className: 'petition-list'}, "目前已經有 #{@props.data.length} 人連署",
       { personNodes }
-      span {}, '還有xxxx人'
+      span {}, "還有#{@props.data.length - count}人未顯示。"
 
 Petitioner = React.createClass do
   displayName: 'PetitionPerson'
@@ -78,13 +81,17 @@ PetitionForm = React.createClass do
       email: @props.email || ''
       uid: @props.uid || ''
       avatarURL: @props.avatarURL || ''
+      hiddenMe: false
   handleNameChange: ->
     @setState displayName: it.target.value
   handleEmailChange: ->
     @setState email: it.target.value
+  handleDisplayCheck: ->
+    @setState hiddenMe: it.target.checked
   handleSubmit: ->
     it.preventDefault!
-    {displayName, email, uid, avatarURL} = @state
+    {displayName, email, uid, avatarURL, hiddenMe} = @state
+    console.log hiddenMe
     return unless displayName or email or uid or avatarURL
     displayName .= trim!
     @props.onPetitionSubmit do
@@ -92,13 +99,14 @@ PetitionForm = React.createClass do
       email: email
       uid: uid
       avatarURL: avatarURL
+      hiddenMe: hiddenMe
   render: ->
     form { onSubmit: @handleSubmit },
       label {}, '顯示名稱'
       input {type: 'text', value: @state.displayName, onChange: @handleNameChange }
       label {}, 'Email'
       input {type: 'email', value: @state.email, onChange: @handleEmailChange }
-      input {type: 'checkbox'}, '不要顯示'
+      input {type: 'checkbox', checked: @state.hiddenMe, onChange: @handleDisplayCheck }, '不要顯示'
       input {type: 'hidden', value: @state.uid }
       input {type: 'hidden', value: @state.avatarURL }
       button { type: 'submit', onSubmit: @handleSubmit }, '我要連署'

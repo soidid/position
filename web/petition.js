@@ -74,7 +74,7 @@
         displayName: this.state.user.displayName,
         email: this.state.user.thirdPartyUserData.email,
         avatarURL: this.state.user.thirdPartyUserData.picture.data.url
-      }) : void 8, this.state.isPetitioned ? div({}, '我已連署過') : void 8, PetitionList({
+      }) : void 8, this.state.isPetitioned && this.state.user ? div({}, '我已連署過') : void 8, PetitionList({
         data: this.state.data
       }));
     }
@@ -82,20 +82,24 @@
   PetitionList = React.createClass({
     displayName: 'PetitionList',
     render: function(){
-      var personNodes;
+      var count, personNodes;
+      count = 0;
       personNodes = this.props.data.map(function(petitioner){
-        var displayName, avatarURL;
-        displayName = petitioner.displayName, avatarURL = petitioner.avatarURL;
-        return Petitioner({
-          author: displayName,
-          avatar: avatarURL
-        });
+        var displayName, avatarURL, hiddenMe;
+        displayName = petitioner.displayName, avatarURL = petitioner.avatarURL, hiddenMe = petitioner.hiddenMe;
+        if (!hiddenMe) {
+          count = count + 1;
+          return Petitioner({
+            author: displayName,
+            avatar: avatarURL
+          });
+        }
       });
       return div({
         className: 'petition-list'
-      }, {
+      }, "目前已經有 " + this.props.data.length + " 人連署", {
         personNodes: personNodes
-      }, span({}, '還有xxxx人'));
+      }, span({}, "還有" + (this.props.data.length - count) + "人未顯示。"));
     }
   });
   Petitioner = React.createClass({
@@ -125,7 +129,8 @@
         displayName: this.props.displayName || '',
         email: this.props.email || '',
         uid: this.props.uid || '',
-        avatarURL: this.props.avatarURL || ''
+        avatarURL: this.props.avatarURL || '',
+        hiddenMe: false
       };
     },
     handleNameChange: function(it){
@@ -138,10 +143,16 @@
         email: it.target.value
       });
     },
+    handleDisplayCheck: function(it){
+      return this.setState({
+        hiddenMe: it.target.checked
+      });
+    },
     handleSubmit: function(it){
-      var ref$, displayName, email, uid, avatarURL;
+      var ref$, displayName, email, uid, avatarURL, hiddenMe;
       it.preventDefault();
-      ref$ = this.state, displayName = ref$.displayName, email = ref$.email, uid = ref$.uid, avatarURL = ref$.avatarURL;
+      ref$ = this.state, displayName = ref$.displayName, email = ref$.email, uid = ref$.uid, avatarURL = ref$.avatarURL, hiddenMe = ref$.hiddenMe;
+      console.log(hiddenMe);
       if (!(displayName || email || uid || avatarURL)) {
         return;
       }
@@ -150,7 +161,8 @@
         displayName: displayName,
         email: email,
         uid: uid,
-        avatarURL: avatarURL
+        avatarURL: avatarURL,
+        hiddenMe: hiddenMe
       });
     },
     render: function(){
@@ -165,7 +177,9 @@
         value: this.state.email,
         onChange: this.handleEmailChange
       }), input({
-        type: 'checkbox'
+        type: 'checkbox',
+        checked: this.state.hiddenMe,
+        onChange: this.handleDisplayCheck
       }, '不要顯示'), input({
         type: 'hidden',
         value: this.state.uid
