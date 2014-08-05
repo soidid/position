@@ -5,7 +5,7 @@ production = true if gutil.env.env is \production
 PORT = 3000
 
 gulp.task 'clean' ->
-  gulp.src 'public'
+  gulp.src ['public/*' '!public/.*' '!public/CNAME']
     .pipe gulp-clean!
 
 gulp.task 'ls' ->
