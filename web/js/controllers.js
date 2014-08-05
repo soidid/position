@@ -37,22 +37,16 @@ ivodControllers.controller('indexCtrl', ['$scope', 'lyData', '$http', '$state',
 
     $scope.categories = ['for','pending','against'];
     $scope.parties = [
-      '全部','中國國民黨','民主進步黨','親民黨','台灣團結聯盟','無黨團結聯盟','無黨籍'
+      'index', 'index.kmt','index.dpp','index.pfp','index.tsu','index.npsu','index.no-party'
       ];
+
+    $scope.$state = $state;
 
     $scope.showContact = true;
     $scope.toggleContact = function(){
         $scope.showContact = !$scope.showContact;
     };
-    $scope.party = "";
-    $scope.party_text = "全部";
-    $scope.chooseParty = function(party){
 
-        $scope.party = party;
-        $scope.party_text = party;
-        if(party=="全部")
-           $scope.party="";
-    };
     $scope.legClick = function(id){
       $scope.data = {};
       $scope.data = $scope.legislators[id];
@@ -182,3 +176,10 @@ ivodControllers.controller('navCtrl', ['$scope', '$state',
      $scope.$state = $state;
   }
 ]); 
+
+ivodControllers.filter('byParty', ['$state', '$filter', function ($state, $filter) {
+  return function (input) {
+    if ($state.current.name == 'index') return input;
+    return $filter('filter')(input, {'party': $state.current.data.text});
+  }
+}]);
