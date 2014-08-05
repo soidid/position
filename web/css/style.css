@@ -260,9 +260,6 @@ p a {
   height:100px;
   border-radius: 5px;
 }
-.leg_img:hover{
-  background: rgba(180,180,180,0.8);
-}
 .modal {
     /*display:    none;*/
     position:   fixed;
@@ -331,13 +328,12 @@ p a {
   position: fixed;
   top:0px;
   left:4px;
-  width:97%;
+  width:98%;
 }
 .f-fix{
-  position: absolute;
   top:10px;
   left:0px;
-  width:98%;
+  width:99%;
 
 }
 .nav_fixed{
@@ -352,10 +348,11 @@ p a {
  
 }
 .talk_state{
-  line-height: 22px;
+  line-height: 24px;
+  padding-bottom: 10px;
 }
 #main_content{
-  margin-top: 80px;
+  
   margin-bottom: 50px;
 }
 /* ------- */
@@ -374,18 +371,21 @@ p a {
 }
 .avatar_item{
   cursor: pointer;
-  width:40px;
+  width:50px;
   display: inline-block;
-  margin: 3px;
+  margin: 2px;
   background: white;
   vertical-align: top;
+  padding:3px;
+  border: 1px solid white;
 }
 .avatar_item_active {
-  background: rgb(200,200,200);
+  background: rgb(230,230,230);
+  border: 1px solid rgb(130,130,130);
 }
 .avatar_item_top{
   cursor: pointer;
-  width:40px;
+  width:50px;
   display: inline-block;
   margin-top: 3px;
   margin-right: 10px;
@@ -394,10 +394,11 @@ p a {
 
 }
 .avatar_image{
-  width:40px;
-  height: 40px;
+  width:48px;
+  height: 50px;
   border: 10px;
   border-radius: 10px;
+  background: white;
 }
 .avatar_name {
   font-size: 10px;
@@ -616,6 +617,25 @@ p a {
 }
 #join_btn {
   margin: 0 auto;
+}
+.circular_label{
+  padding:2px;
+  padding-left:5px;
+  padding-right: 5px;
+  border-radius: 10px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.circular_label_green{
+  background:rgb(161,207,100);
+  color: white;
+}
+.circular_label_red{
+  background:rgb(217,92,92);
+  color: white;
+}
+.circular_label_gray{
+  background:rgb(232,232,232);
 }
 
 

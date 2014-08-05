@@ -10,7 +10,24 @@
              'NP_image':data.party=='無黨籍','NPU_image':data.party=='無黨團結聯盟'}">
 
 </div>
+<div class="talk_state" ng-show="data">
+  <i class="quote left icon"></i>我<span ng-show="data.position=='for'" class="circular_label circular_label_green">支持</span><span ng-show="data.position=='pending'" class="circular_label circular_label_gray">尚未表態是否支持</span><span ng-show="data.position=='against'" class="circular_label circular_label_red">反對</span>委員會透明化。 {{data.reason}}<i class="quote right icon"></i>
+  
+  <div>
+    －{{data.name}}，{{data.party}}立法委員（{{data.constituency}}）
+<span class="circular_label circular_label_gray"><i class="phone icon"></i>電話 </span>
+{{data.contact["國會研究室"].phone}}
+<span class="circular_label circular_label_gray"><i class="print icon"></i>傳真 </span>
+{{data.contact["國會研究室"].fax}}
 
+<div class="ui tiny right floated button" ng-click="goLegi(data.id)">{{data.name}} 完整資料</div>
+
+</div>
+
+
+</div>
+
+<!--
 <div class="talk_state" ng-show="data.position=='for'">
   您好，我是<a class="ui circular label">{{data.name}}</a>，是<a class="ui circular label">{{data.party}}</a><a class="ui circular label">{{data.constituency}}</a>的立法委員。
   我<a class="ui circular green label">支持</a>委員會透明化，IVOD 轉播不可以有藍畫面。<span ng-show="data.reason">我認為「{{data.reason}}」</span>如果我的意見不代表您的民意，請來電讓我知道！國會辦公室電話：<a class="ui circular label"><i class="phone icon"></i>{{data.contact["國會研究室"].phone}}</a>國會辦公室傳真：<a class="ui circular label"><i class="print icon"></i>{{data.contact["國會研究室"].fax}}</a>
@@ -33,6 +50,7 @@
   </span>
   <br/>如果我的意見不代表您的民意，請來電讓我知道！國會辦公室電話：<a class="ui circular label"><i class="phone icon"></i>{{data.contact["國會研究室"].phone}}</a>國會辦公室傳真：<a class="ui circular label"><i class="print icon"></i>{{data.contact["國會研究室"].fax}}</a>
 </div>
-</div>
+-->
+</div><!-- end of wrapper -->
 
 

@@ -28,12 +28,16 @@ ivodApp.config(['$routeProvider','$locationProvider',
       when('/contact',{
       templateUrl: 'partials/contact.html'
     }).
+      when('/legi/:legId',{
+      templateUrl: 'partials/legi.html',
+      controller: 'legCtrl'
+    }).
       otherwise({
       redirectTo:'/',
       templateUrl: 'partials/index.html',
-      controller: 'indexCtrl'
+      controller: 'legiCtrl'
     });
-    $locationProvider.html5Mode(true)
+    $locationProvider.html5Mode(false)
                      .hashPrefix('!');
 
 }]);

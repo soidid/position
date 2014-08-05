@@ -1,7 +1,7 @@
 var ivodControllers = angular.module('ivodControllers',[]);
 
-ivodControllers.controller('indexCtrl', ['$scope', 'lyData','$http',
-  function ($scope,lyData, $http) {
+ivodControllers.controller('indexCtrl', ['$location','$scope', 'lyData','$http',
+  function ($location,$scope,lyData, $http) {
 
     
     $scope.setMargin = function(){
@@ -92,7 +92,7 @@ ivodControllers.controller('indexCtrl', ['$scope', 'lyData','$http',
     //Determin if it's at the bottom of the page
     //http://stackoverflow.com/questions/3898130/how-to-check-if-a-user-has-scrolled-to-the-bottom
     $(window).scroll(function() {
-       if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+       if($(window).scrollTop() + $(window).height() > $(document).height() - 150) {
            $("#bottom_search").removeClass("nav_fixed");
            $("#bottom_join").removeClass("nav_fixed");
            $("#bottom_join").removeClass("join_button_area_top");
@@ -104,8 +104,36 @@ ivodControllers.controller('indexCtrl', ['$scope', 'lyData','$http',
        }
     });
 
+    $scope.goLegi = function(url){
+        $location.path("legi/"+url);
+    };
 
 
+
+
+
+  }
+]);
+ivodControllers.controller('legCtrl', ['$location','$routeParams','$scope', 'lyData','$http',
+  function ($location,$routeParams,$scope,lyData, $http) {
+
+    if($routeParams.legId){
+      $scope.legId = $routeParams.legId;
+    }else{
+      $scope.legId = 1;
+    };
+    $scope.legislators = [];
+    if($scope.legislators.length==0){
+        lyData.getData().then(function(data){
+          
+          $scope.legislators = data;
+          for(var i=0;i<$scope.legislators.length;i++){
+             $scope.legislators[i]['id'] = i;
+          }
+          $scope.data = $scope.legislators[$scope.legId];
+          
+        });
+    }
 
 
   }

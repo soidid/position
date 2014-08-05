@@ -37,13 +37,13 @@
        ng-repeat="n in legislators | filter:query | filter:{'position':c,'party':party} | orderBy:'party'"
        ng-click="legClick(n.id)"
        ng-show="n.name"
-
+       ng-class="{'avatar_item_active':isActiveLeg(n.id)}"
        >
 
       <img class="avatar_image" ng-src="https://raw.githubusercontent.com/soidid/LegiPhotos/master/8th/avatar/{{n.name}}.png" 
          ng-class="{'KMT_image':n.party=='中國國民黨','DPP_image':n.party=='民主進步黨',
                   'PFP_image':n.party=='親民黨','TSU_image':n.party=='台灣團結聯盟',
-                  'NP_image':n.party=='無黨籍','NPU_image':n.party=='無黨團結聯盟','avatar_item_active':isActiveLeg(n.id)}">
+                  'NP_image':n.party=='無黨籍','NPU_image':n.party=='無黨團結聯盟'}">
 
      <div class="avatar_name">{{n.name}}</div>
      </div><!-- end of avatar_item -->

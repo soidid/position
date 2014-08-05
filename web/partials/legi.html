@@ -1,0 +1,25 @@
+<div class="wrapper">
+     <div id="main_segment">
+     <img class="leg_img" ng-src="https://raw.githubusercontent.com/soidid/LegiPhotos/master/8th/{{data.name}}.png" 
+         ng-class="{'KMT_image':data.party=='中國國民黨','DPP_image':data.party=='民主進步黨',
+                  'PFP_image':data.party=='親民黨','TSU_image':data.party=='台灣團結聯盟',
+                  'NP_image':data.party=='無黨籍','NPU_image':data.party=='無黨團結聯盟'}">
+
+      {{data.name}}
+      {{data.party}}
+      {{data.constituency}}
+      {{data.constituency_detail}}
+      <div ng-show="data.contact"
+           ng-repeat="(key,value) in data.contact">
+               {{key}}<br/>
+               電話：{{value.phone}}<br/>
+               傳真：{{value.fax}}<br/>
+               地址：{{value.address}}<br/>
+      </div>
+
+      {{data.position}}
+      {{data.reason}}
+
+     
+     </div>
+</div>
