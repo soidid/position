@@ -2,6 +2,7 @@
 <html ng-app="ivodApp">
   <head>
     <!-- Standard Meta -->
+    <base href="/" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -35,28 +36,55 @@
 <body>
 
 
-<div class="ui inverted menu" ng-controller="navCtrl">
+<div class="ui inverted menu" ng-controller="navCtrl" style="height:40px;">
 
-  <a class="item" href="index.html#/" ng-class="{'active':nav_cat=='index'}" ng-click="toggleNav('index')">
+  <a class="item" href="/" ng-class="{'active':nav_cat=='index'}" ng-click="toggleNav('index')">
     立委表態 | IVOD
   </a>
-  <a class="item" href="index.html#/about" ng-class="{'active':nav_cat=='about'}" ng-click="toggleNav('about')">
+  <a class="item" href="#!/about" ng-class="{'active':nav_cat=='about'}" ng-click="toggleNav('about')">
     議題說明
   </a>
-  <a class="item" href="index.html#/data" ng-class="{'active':nav_cat=='data'}" ng-click="toggleNav('data')">
+  <a class="item" href="#!/list" ng-class="{'active':nav_cat=='list'}" ng-click="toggleNav('list')">
+    連署名單
+  </a>
+  <a class="item" href="#!/data" ng-class="{'active':nav_cat=='data'}" ng-click="toggleNav('data')">
     立場統計方式
   </a>
-  <a class="item" href="index.html#/contact" ng-class="{'active':nav_cat=='contact'}" ng-click="toggleNav('contact')">
-    聯絡
-  </a>
+  
  
    <div class="right menu">
-        <div class="item">
-          <a href="http://to.13pa.tw/" target="_blank">我想罷免</a>
-        </div>
+        
+          <a class="item"><div class="fb-like" data-href="http://wethepeople.tw" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div></a>
+       
    </div>
 </div>
 
     <div ng-view></div>
+    <div class="footer" ng-controller="footCtrl">
+      <div class="ui horizontal bulleted list">
+         <div class="item" ng-click="go('contact')">
+          聯絡我們
+         </div>
+         <div class="item" ng-click="goExternal('//musou.tw')">
+          國會無雙
+         </div>
+         <div class="item" ng-click="goExternal('//wethepeople.tw')">
+          市長，給問嗎
+         </div>
+  
+      </div>
+   </div>
+
+
+<!-- to be changed -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=234452240075815&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 </body>
 </html>

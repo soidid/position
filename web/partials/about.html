@@ -1,4 +1,4 @@
-<div class="ui segment" id="main_segment">
+<div class="wrapper">
  <center>
 <div class="about_title">
  <h3>「你們敢做，我們敢看！」無限期支持立法院 IVOD 全程轉播</h3>
@@ -60,11 +60,6 @@
 <h2 class="ui dividing header"><i class="list layout icon"></i>我們的訴求</h2>
 <p>我們認為：立院轉播不應該是廣播劇！無論是打架拉頭髮、佔領主席台還是協商討論與磋商，要求立法院 IVOD 系統全程轉播，不得因為任何理由中途藍幕、黑幕與停止錄音。</p>
 
-<h2 class="ui dividing header"><i class="bullhorn icon"></i>一起採取行動</h2>
-<p>如果你也認為，民意代表既然代表民意，在立法院審查法案、預算的時候，就應該<a class="ui circular teal label">公開透明，讓全民能夠檢視，也代表對人民負責</a>。</p>
-<p>那麼，請你一起採取行動：<a class="ui circular red label" href="#">打電話給你選區的立委，表達你的意見</a>。</p>
-
-
 <h2 class="ui dividing header"><i class="user icon"></i>共同發起團體</h2>
 <p>
 <div class="ui horizontal bulleted list">
@@ -74,31 +69,52 @@
 </div>
 </p>
 
-<div class="join_us" ng-click="contact()">
+<div class="join_us" ng-click="go('contact')">
   加入共同發起團體
 </div>
 
+</div><!-- end of segment -->
+
+
+<div class="join_button_area join_button_area_top nav_fixed" id="bottom_join">
+     <i class="bullhorn icon"></i>一起採取行動！
+     <div class="ui tiny red button" ng-click="showBox()" id="join_btn">加入連署</div>
 </div>
 
-<div class="footer">
-<div class="tiny ui button" ng-click="contact()">
-  聯絡我們
-</div>
-<div class="tiny ui button" ng-click="goback()">
-  回到頁首
-</div>
-</div>
-</center>
 
 
 <!-- alert box -->
-<div id="alert_box">
-  <div class="ui small segment" id="alert_text">
-    <div class="ui form segment" id="info_form_segment">
-       <i class="cancel circle basic icon" ng-click="hide()" id="cancel_button"></i>
-       <p>加入共同發起團體：abc@info.com</p> 
-       <p>聯絡：abc@info.com</p> 
-       <p>錯誤回報：abc@info.com</p>   
+<div id="alert_box" ng-click="hideBox()">
+  <div class="ui small segment" id="alert_text" ng-click="$event.stopPropagation()">
+    <div class="ui form segment">
+       <i class="cancel circle basic icon" ng-click="hideBox()" id="cancel_button"></i>
+       
+       <div class="alert_title">加入連署</div>
+       <div class="field">
+          <label>顯示名稱</label>
+          <div class="ui left labeled icon input">
+              <input type="text" placeholder="顯示在頁面上的名稱" ng-model="user.name">
+              <i class="user icon"></i>
+          </div>
+       </div>
+       <div class="field">
+          <label>電子郵件</label>
+          <div class="ui left labeled icon input">
+              <input type="text" placeholder="請放心！僅作為聯繫使用，不會顯示在頁面上" ng-model="user.email">
+              <i class="mail icon"></i>
+          </div>
+       </div>
+       <div class="field">
+          <div class="ui checkbox">
+            <input type="checkbox" name="show" checked>
+            <label>顯示我的連署資訊</label>
+          </div>
+       </div>
+       <center>
+          <div class="ui tiny button" ng-click="hideBox()">取消</div>
+          <div class="ui tiny teal button" ng-click="submit()">送出</div>
+       </center>
+
     </div>
   </div>
 </div>

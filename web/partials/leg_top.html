@@ -1,3 +1,8 @@
+<div ng-hide="data.name">
+   <center>請點選下方立委頭像。</center>
+</div>
+
+<div class="wrapper">
 <div class="avatar_item_top" ng-show="data.name">
   <img class="avatar_image" ng-src="https://raw.githubusercontent.com/soidid/LegiPhotos/master/8th/avatar/{{data.name}}.png" 
   ng-class="{'KMT_image':data.party=='中國國民黨','DPP_image':data.party=='民主進步黨',
@@ -8,23 +13,26 @@
 
 <div class="talk_state" ng-show="data.position=='for'">
   您好，我是<a class="ui circular label">{{data.name}}</a>，是<a class="ui circular label">{{data.party}}</a><a class="ui circular label">{{data.constituency}}</a>的立法委員。
-  我<a class="ui circular green label">支持</a>委員會透明化，IVOD 轉播不可以有藍畫面。我已經率先承諾支持推動此項國會改革，讓選民能夠檢視我在立法院的一言一行，並對選民負責。
+  我<a class="ui circular green label">支持</a>委員會透明化，IVOD 轉播不可以有藍畫面。<span ng-show="data.reason">我認為「{{data.reason}}」</span>如果我的意見不代表您的民意，請來電讓我知道！國會辦公室電話：<a class="ui circular label"><i class="phone icon"></i>{{data.contact["國會研究室"].phone}}</a>國會辦公室傳真：<a class="ui circular label"><i class="print icon"></i>{{data.contact["國會研究室"].fax}}</a>
+</div>
+
+<div class="talk_state" ng-show="data.position=='pending'" ng-click="legClick(data.id)">
+  您好，我是<a class="ui circular label">{{data.name}}</a>，是<a class="ui circular label">{{data.party}}</a><a class="ui circular label">{{data.constituency}}</a>的立法委員。
+  我<a class="ui circular label">尚未表態是否支持</a>立法院 IVOD 轉播系統公開透明。
+  <span ng-show="data.constituency!='全國不分區'">
+    我的選區是：{{data.constituency_detail}}。
+  </span>
+  <br/>如果我的意見不代表您的民意，請來電讓我知道！國會辦公室電話：<a class="ui circular label"><i class="phone icon"></i>{{data.contact["國會研究室"].phone}}</a>國會辦公室傳真：<a class="ui circular label"><i class="print icon"></i>{{data.contact["國會研究室"].fax}}</a>
 </div>
 
 <div class="talk_state" ng-show="data.position=='against'" ng-click="legClick(data.id)">
   您好，我是<a class="ui circular label">{{data.name}}</a>，是<a class="ui circular label">{{data.party}}</a><a class="ui circular label">{{data.constituency}}</a>的立法委員。
-  我<a class="ui red circular label">反對</a>立法院 IVOD 轉播系統公開透明。
+  我<a class="ui red circular label">反對</a>立法院 IVOD 轉播系統公開透明。我認為「{{data.reason}}」
   <span ng-show="data.constituency!='全國不分區'">
     我的選區是：{{data.constituency_detail}}。
   </span>
-  <br/>如果我的意見不代表您的民意，請來電讓我知道！國會研究室：<a class="ui circular label"><i class="phone icon"></i>{{data.contact["國會研究室"].phone}}</a>
+  <br/>如果我的意見不代表您的民意，請來電讓我知道！國會辦公室電話：<a class="ui circular label"><i class="phone icon"></i>{{data.contact["國會研究室"].phone}}</a>國會辦公室傳真：<a class="ui circular label"><i class="print icon"></i>{{data.contact["國會研究室"].fax}}</a>
+</div>
 </div>
 
-<!--
-<div>
-<a class="ui circular label" ng-repeat="(key,val) in data.contact">
- <i class="phone icon"></i>{{key}}：{{val.phone}}
-</a>
-</div>
--->
 

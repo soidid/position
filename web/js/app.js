@@ -16,7 +16,7 @@ ivodApp.config(['$routeProvider','$locationProvider',
     }).
       when('/list',{
       templateUrl: 'partials/list.html',
-      controller: 'indexCtrl'
+      controller: 'listCtrl'
     }).
       when('/about',{
       templateUrl: 'partials/about.html',
@@ -33,9 +33,8 @@ ivodApp.config(['$routeProvider','$locationProvider',
       templateUrl: 'partials/index.html',
       controller: 'indexCtrl'
     });
-    $locationProvider.html5Mode(false);
-    //$locationProvider.html5Mode(false);
-    //                .hashPrefix('!');
+    $locationProvider.html5Mode(true)
+                     .hashPrefix('!');
 
 }]);
 

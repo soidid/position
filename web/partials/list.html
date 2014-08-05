@@ -1,68 +1,18 @@
-<div ng-show="mode=='list'">
-<div class="mini ui right floated button" ng-show="showContact" ng-click="toggleContact()">
-  隱藏聯絡方式
+<div class="wrapper">
+     <div id="main_segment" class="list_page">
+      <div class="signer_header"><div class="signer_title"><b>{{signers.length}}</b> 連署人</div></div>
+      
+
+      <div class="signer_item" ng-repeat="person in signers">
+        
+        <img class="signer_image" ng-src="https://raw.githubusercontent.com/soidid/LegiPhotos/master/8th/avatar/{{person.name}}.png" >
+        <div class="signer_name">{{person.name | limitTo:6}}
+          <span ng-show="person.name.length>6">...<span></div>
+
+
+      </div>
+      <div class="signer_item_left">...以及其他 488 人</div>
+
+     
+     </div>
 </div>
-<div class="mini ui right floated button" ng-show="!showContact" ng-click="toggleContact()">
-  顯示聯絡方式
-</div>
-<br/>
-<table class="ui compact table sortable segment">
-  <thead>
-    <tr>
-    <th>立場</th>
-    <th>頭像</th>
-    <th>姓名</th>
-    <th>黨籍</th>
-    <th>選區</th>
-    <th>範圍</th>
-    <th ng-show="showContact">聯絡</th>
-  </tr></thead>
-  <tbody>
-    <tr ng-repeat="n in legislators | filter:query" ng-click="legClick(n.id)" class="table_item">
-      <td ng-class="{'negative':n.position == 'against','positive':n.position == 'for'}">
-          <span ng-show="n.position == 'for'">支持</span>
-          <span ng-show="n.position == 'against'">反對</span></td>
-      <td><img class="ui big avatar image" ng-src="https://raw.githubusercontent.com/soidid/LegiPhotos/master/8th/avatar/{{n.name}}.png"></td>
-      <td>{{n.name}}</td>
-      <td>{{n.party}}</td>
-      <td>{{n.constituency}}</td>
-      <td><span class="table_districtDetail">{{n.constituency_detail}}</span></td>
-      <td ng-show="showContact"><div ng-show="n.contact"
-               ng-repeat="(key,value) in n.contact">
-               {{key}}<br/>
-               電話：{{value.phone}}<br/>
-               傳真：{{value.fax}}<br/>
-               地址：{{value.address}}<br/></div></td>   
-    </tr>
-  </tbody>
-</table>
-</div>
-<!--
-<script type="text/javascript">
-  $(function() {
-      var table = $('<table></table>');
-      table.append('<thead><tr><th class="number">Number</th></tr></thead>');
-      var tbody = $('<tbody></tbody>');
-      for(var i = 0; i<100; i++) {
-      tbody.append('<tr><td>' + Math.floor(Math.random() * 100) + '</td></tr>');
-      }
-      table.append(tbody);
-      $('.example.ex-2').append(table);
-
-      $('table').tablesort().data('tablesort');
-
-      $('thead th.number').data('sortBy', function(th, td, sorter) {
-        return parseInt(td.text(), 10);
-        });
-
-      });
-</script>
--->
-
-
-
-
-
-
-
-

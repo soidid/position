@@ -113,6 +113,7 @@ lyServices.factory('lyData', ['$http','$q',function($http, $q){
             new_item['avatar'] = val['avatar'];
             new_item['constituency_detail'] = val['constituency_detail'];
             new_item['position'] = position_data[peer_index]['position'];
+            new_item['reason'] = position_data[peer_index]['reason'];
             data.push(new_item);
             
         });

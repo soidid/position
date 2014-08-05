@@ -28,7 +28,7 @@ ivodControllers.controller('indexCtrl', ['$scope', 'lyData','$http',
              $scope.legislators[i]['id'] = i;
           }
           
-          $scope.data = $scope.legislators[37];//default, can modify to random
+          //$scope.data = $scope.legislators[37];//default, can modify to random
     
         });
     }
@@ -58,8 +58,12 @@ ivodControllers.controller('indexCtrl', ['$scope', 'lyData','$http',
     $scope.legClick = function(id){
       $scope.data = {};
       $scope.data = $scope.legislators[id];
+      $scope.currentActiveLeg = id;
       
     };
+    $scope.isActiveLeg = function(id){
+      return $scope.currentActiveLeg === id;
+    }
    
     $scope.goback = function(){
       var body = $("html, body");
@@ -85,21 +89,66 @@ ivodControllers.controller('indexCtrl', ['$scope', 'lyData','$http',
 
 
 
+    //Determin if it's at the bottom of the page
+    //http://stackoverflow.com/questions/3898130/how-to-check-if-a-user-has-scrolled-to-the-bottom
+    $(window).scroll(function() {
+       if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+           $("#bottom_search").removeClass("nav_fixed");
+           $("#bottom_join").removeClass("nav_fixed");
+           $("#bottom_join").removeClass("join_button_area_top");
+          
+       }else{
+           $("#bottom_search").addClass("nav_fixed");
+           $("#bottom_join").addClass("nav_fixed");
+           $("#bottom_join").addClass("join_button_area_top");
+       }
+    });
+
+
+
+
+
+  }
+]);
+ivodControllers.controller('listCtrl', ['$scope', 'lyData','$http',
+  function ($scope,lyData, $http) {
+    $scope.signers = [];
+    if($scope.signers.length==0){
+         lyData.getData().then(function(data){
+          
+          $scope.signers = data;
+         
+          
+    
+        });
+    }
+
+   
+
+  }
+]);
+ivodControllers.controller('footCtrl', ['$location','$scope',
+  function ($location,$scope) {
+    $scope.go = function(url){
+        $location.path(url);
+    };
+    $scope.goExternal = function(url){
+        window.open(url);
+    };
+
   }
 ]);
 
-
-ivodControllers.controller('aboutCtrl', ['$scope', 'lyData','$http',
-  function ($scope,lyData, $http) {
+ivodControllers.controller('aboutCtrl', ['$location', '$scope', 'lyData','$http',
+  function ($location, $scope, lyData, $http) {
 
     $scope.groups = [];
-    console.log("g");
+   
     if($scope.groups.length==0){
        lyData.getGroup().then(function(data){
             console.log("group");
             $scope.groups = data;
             
-   
        });
     }
     $scope.goback = function(){
@@ -107,11 +156,24 @@ ivodControllers.controller('aboutCtrl', ['$scope', 'lyData','$http',
       body.animate({scrollTop:0}, '500', 'swing');
 
     };
-    $scope.contact = function(){
+    $scope.showBox = function(){
       $("#alert_box").show();
     };
-    $scope.hide = function(){
+    $scope.hideBox = function(){
       $("#alert_box").hide();
+    };
+
+    $('.ui.checkbox').checkbox();
+    $scope.show = $('input[name=show]:checked').length;
+    $scope.user = {};
+    $scope.submit = function(){
+       console.log($scope.user.name);
+       console.log($scope.user.email);
+       console.log($scope.show);
+    };
+
+    $scope.go = function(url){
+        $location.path(url);
     };
 
   }
