@@ -3,8 +3,8 @@ var ivodControllers = angular.module('ivodControllers',[
 ]);
 
 
-ivodControllers.controller('indexCtrl', ['$location','$scope', 'lyData','$http',
-  function ($location,$scope,lyData, $http) {
+ivodControllers.controller('indexCtrl', ['$state','$location','$scope', 'lyData','$http',
+  function ($state,$location,$scope,lyData, $http) {
 
     $scope.setMargin = function(){
        console.log("SET MARGIN");
@@ -106,14 +106,15 @@ ivodControllers.controller('indexCtrl', ['$location','$scope', 'lyData','$http',
 
   }
 ]);
-ivodControllers.controller('legCtrl', ['$location','$stateParams','$scope', 'lyData','$http',
-  function ($location,$stateParams,$scope,lyData, $http) {
-    
-    if($stateParams.legId){
-      $scope.legId = $stateParams.legId;
+ivodControllers.controller('legCtrl', ['$location','$state','$scope', 'lyData','$http',
+  function ($location,$state,$scope,lyData, $http) {
+    console.log($state);
+    if($state.params.legId){
+      $scope.legId = $state.params.legId;
     }else{
       $scope.legId = 1;
     };
+
     $scope.legislators = [];
     if($scope.legislators.length==0){
         lyData.getData().then(function(data){
