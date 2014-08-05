@@ -1,31 +1,36 @@
 /* App Module */
 
 var ivodApp = angular.module("ivodApp", [
-  'ngRoute',
+  'ui.router',
   'lyServices',
   'ivodControllers'
-
 ]);
 
-ivodApp.config(['$routeProvider','$locationProvider',
-  function($routeProvider,$locationProvider){
-    $routeProvider.
-      when('/',{
+ivodApp.config(['$stateProvider', '$urlRouterProvider',
+  function($stateProvider, $urlRouterProvider){
+    $urlRouterProvider.otherwise("/");
+    $stateProvider.
+      state('index',{
+      url: '/',
       templateUrl: 'partials/index.html',
       controller: 'indexCtrl'
     }).
-      when('/list',{
+      state('list',{
+      url: '/list',
       templateUrl: 'partials/list.html',
       controller: 'listCtrl'
     }).
-      when('/about',{
+      state('about',{
+      url: '/about',
       templateUrl: 'partials/about.html',
       controller: 'aboutCtrl'
     }).
-      when('/data',{
+      state('data',{
+      url: '/data',
       templateUrl: 'partials/data.html'
     }).
-      when('/contact',{
+      state('contact',{
+      url: '/contact',
       templateUrl: 'partials/contact.html'
     }).
       when('/legi/:legId',{
@@ -39,6 +44,7 @@ ivodApp.config(['$routeProvider','$locationProvider',
     });
     $locationProvider.html5Mode(false)
                      .hashPrefix('!');
+
 
 }]);
 

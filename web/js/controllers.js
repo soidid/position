@@ -1,9 +1,11 @@
-var ivodControllers = angular.module('ivodControllers',[]);
+var ivodControllers = angular.module('ivodControllers',[
+  'ui.router'
+]);
+
 
 ivodControllers.controller('indexCtrl', ['$location','$scope', 'lyData','$http',
   function ($location,$scope,lyData, $http) {
 
-    
     $scope.setMargin = function(){
        console.log("SET MARGIN");
        var nav_height = $("#nav_segment").css("height");
@@ -34,14 +36,10 @@ ivodControllers.controller('indexCtrl', ['$location','$scope', 'lyData','$http',
     }
 
     $scope.categories = ['for','pending','against'];
-    $scope.parties = ['全部','中國國民黨','民主進步黨','親民黨','台灣團結聯盟','無黨團結聯盟','無黨籍'];
+    $scope.parties = [
+      '全部','中國國民黨','民主進步黨','親民黨','台灣團結聯盟','無黨團結聯盟','無黨籍'
+      ];
 
-    $scope.mode = "position";//figure/list/blue/position/party
-    $scope.toggleMode = function(mode){
-      $scope.mode = mode;
-      $scope.setMargin();
-
-    };
     $scope.showContact = true;
     $scope.toggleContact = function(){
         $scope.showContact = !$scope.showContact;
@@ -207,16 +205,8 @@ ivodControllers.controller('aboutCtrl', ['$location', '$scope', 'lyData','$http'
   }
 ]);   
 
-ivodControllers.controller('navCtrl', ['$scope',
-  function ($scope) {
-     
-     $scope.nav_cat = "index";
-
-     $scope.toggleNav = function(choice){
-
-        $scope.nav_cat = choice;
-
-     };
-
+ivodControllers.controller('navCtrl', ['$scope', '$state',
+  function ($scope, $state) {
+     $scope.$state = $state;
   }
 ]); 
