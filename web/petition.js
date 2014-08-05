@@ -8,13 +8,15 @@
     getInitialState: function(){
       return {
         data: [],
-        user: null
+        user: null,
+        isPetitioned: false
       };
     },
     componentWillMount: function(){
       var this$ = this;
       this.bindAsArray(new Firebase(firebaseApp + "/issues/fireman-owyeu8i3t7l7rves/petitioners"), 'data');
       return this.auth = new FirebaseSimpleLogin(this.firebaseRefs['data'], function(error, user){
+        var ref;
         if (error) {
           return console(error);
         }
@@ -22,7 +24,14 @@
           this$.setState({
             user: user
           });
-          return console.log(user);
+          ref = this$.firebaseRefs.data.startAt(user.uid).endAt(user.uid);
+          return ref.on('child_added', function(it){
+            if (it.val()) {
+              return this$.setState({
+                isPetitioned: true
+              });
+            }
+          });
         } else {
           return this$.setState({
             user: null
@@ -31,13 +40,15 @@
       });
     },
     handlePetitionSubmit: function(petition){
-      var petitioners;
+      var uid, petitioners, newPeitionRef;
+      uid = petition.uid;
       petitioners = this.state.data;
       petitioners.push(petition);
       this.setState({
         data: petitioners
       });
-      return this.firebaseRefs.data.push(petition);
+      newPeitionRef = this.firebaseRefs.data.push();
+      return newPeitionRef.setWithPriority(petition, uid);
     },
     handleLogin: function(){
       return this.auth.login('facebook', {
@@ -57,13 +68,13 @@
         : FBAuthButton({
           handleClick: this.handleLogout,
           message: '臉書登出'
-        }), this.state.user ? PetitionForm({
+        }), this.state.user && !this.state.isPetitioned ? PetitionForm({
         onPetitionSubmit: this.handlePetitionSubmit,
         uid: this.state.user.uid,
         displayName: this.state.user.displayName,
         email: this.state.user.thirdPartyUserData.email,
         avatarURL: this.state.user.thirdPartyUserData.picture.data.url
-      }) : void 8, PetitionList({
+      }) : void 8, this.state.isPetitioned ? div({}, '我已連署過') : void 8, PetitionList({
         data: this.state.data
       }));
     }

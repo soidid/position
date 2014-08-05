@@ -5,22 +5,27 @@ firebaseApp = 'https://petition.firebaseio.com/'
 PetitionApp = React.createClass do
   displayName: 'PetitionApp'
   mixins: [ReactFireMixin]
-  getInitialState: -> { data: [], user: null}
+  getInitialState: -> { data: [], user: null, isPetitioned: false}
   componentWillMount: ->
     @bindAsArray (new Firebase "#{firebaseApp}/issues/fireman-owyeu8i3t7l7rves/petitioners"), 'data'
     @auth = new FirebaseSimpleLogin @firebaseRefs['data'], (error, user) ~>
       return console error if error
       if user
         @setState user: user
-        console.log user
+        ref = @firebaseRefs.data.startAt user.uid .endAt user.uid
+        ref.on 'child_added', ~>
+          if it.val!
+            @setState isPetitioned: true
       else
         @setState user: null
 
-  handlePetitionSubmit: (petition) ->
+  handlePetitionSubmit: ({uid}:petition) ->
     petitioners = @state.data
     petitioners.push petition
     @setState data: petitioners
-    @firebaseRefs.data.push petition
+    new-peition-ref = @firebaseRefs.data.push! #petition
+    new-peition-ref.setWithPriority petition, uid
+
   handleLogin: ->
     @auth.login 'facebook', do
       rememberMe: true
@@ -33,13 +38,14 @@ PetitionApp = React.createClass do
         FBAuthButton handleClick: @handleLogin, message: '臉書登入'
       else
         FBAuthButton handleClick: @handleLogout, message: '臉書登出'
-      if @state.user
+      if @state.user and !@state.isPetitioned
         PetitionForm do
           onPetitionSubmit: @handlePetitionSubmit
           uid: @state.user.uid
           displayName: @state.user.displayName
           email: @state.user.thirdPartyUserData.email
           avatarURL: @state.user.thirdPartyUserData.picture.data.url
+      div {}, '我已連署過' if @state.isPetitioned
       PetitionList data: @state.data
 
 
