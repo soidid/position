@@ -1,6 +1,6 @@
 (function(){
-  var ref$, div, img, form, button, label, input, span, firebaseApp, PetitionApp, PetitionList, Petitioner, FBAuthButton, PetitionForm;
-  ref$ = React.DOM, div = ref$.div, img = ref$.img, form = ref$.form, button = ref$.button, label = ref$.label, input = ref$.input, span = ref$.span;
+  var ref$, div, img, form, button, label, input, span, em, firebaseApp, PetitionApp, PetitionList, Petitioner, FBAuthButton, PetitionForm;
+  ref$ = React.DOM, div = ref$.div, img = ref$.img, form = ref$.form, button = ref$.button, label = ref$.label, input = ref$.input, span = ref$.span, em = ref$.em;
   firebaseApp = 'https://petition.firebaseio.com/';
   PetitionApp = React.createClass({
     displayName: 'PetitionApp',
@@ -97,9 +97,13 @@
       });
       return div({
         className: 'petition-list'
-      }, "目前已經有 " + this.props.data.length + " 人連署", {
+      }, div({
+        className: 'issue-petitioners'
+      }, "目前已經有 " + this.props.data.length + " 人連署"), {
         personNodes: personNodes
-      }, span({}, "還有" + (this.props.data.length - count) + "人未顯示。"));
+      }, this.props.data.length - count > 0 ? span({
+        className: 'more'
+      }, "...以及其他" + (this.props.data.length - count) + "人。") : void 8);
     }
   });
   Petitioner = React.createClass({
