@@ -572,6 +572,8 @@ p, li {
 .wrapper{
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
+  padding: 10px;
   
 }
 .list_page {
@@ -666,6 +668,7 @@ p, li {
 .petition-list {
   border-top: 6px solid rgb(200,200,200);
   text-align: center;
+  margin-top: 20px;
   
 }
 .issue-petitioners {
