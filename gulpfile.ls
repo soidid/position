@@ -17,10 +17,10 @@ gulp.task 'ls' <[ clean ]> ->
 
 gulp.task 'js:app' <[ clean ls ]> ->
   app = gulp.src [
-    * 'web/js/app.js'
     * 'web/js/controllers.js'
-    * 'web/js/jquery.tablesort.js'
     * 'web/js/services.js'
+    * 'web/js/app.js'
+    * 'web/js/jquery.tablesort.js'
   ]
     .pipe gulp-concat 'app.js'
     .pipe gulp-if production, gulp-uglify!

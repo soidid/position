@@ -59,8 +59,8 @@ PetitionList = React.createClass do
         Petitioner author: displayName, avatar: avatarURL
     div {className: 'petition-list'},
       div {className: 'issue-petitioners'}, "目前已經有 #{@props.data.length} 人連署"
-      div {className: 'petitioners'}, { personNodes }
-      span {className: 'more'}, "...以及其他#{@props.data.length - count}人。" if @props.data.length - count > 0
+      div {className: 'petitioners'}, { personNodes },
+        span {className: 'more'}, "...以及其他#{@props.data.length - count}人。" if @props.data.length - count > 0
 
 Petitioner = React.createClass do
   displayName: 'PetitionPerson'
@@ -103,11 +103,14 @@ PetitionForm = React.createClass do
       hiddenMe: hiddenMe
   render: ->
     form { onSubmit: @handleSubmit },
-      label {}, '顯示名稱'
-      input {type: 'text', value: @state.displayName, onChange: @handleNameChange }
-      label {}, 'Email'
-      input {type: 'email', value: @state.email, onChange: @handleEmailChange }
-      input {type: 'checkbox', checked: @state.hiddenMe, onChange: @handleDisplayCheck }, '不要顯示'
+      div {className: 'field'},
+        label {}, '顯示名稱'
+        input {type: 'text', value: @state.displayName, onChange: @handleNameChange }
+      div {className: 'field'},
+        label {}, 'Email'
+        input {type: 'email', value: @state.email, onChange: @handleEmailChange }
+      div {className: 'field'},
+        input {type: 'checkbox', checked: @state.hiddenMe, onChange: @handleDisplayCheck }, '不要顯示'
       input {type: 'hidden', value: @state.uid }
       input {type: 'hidden', value: @state.avatarURL }
       button { type: 'submit', onSubmit: @handleSubmit }, '我要連署'
