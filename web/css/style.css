@@ -511,6 +511,7 @@ p, li {
 .about_section {
   /* https://www.flickr.com/photos/69214385@N04/8669592973 */
   background: url(../images/about-bg.jpg) 50% 0 repeat fixed; min-height: 400px;
+  background-size: 100% auto;
   margin-top: 40px;
   padding: 20px;
   margin-bottom: 40px;
