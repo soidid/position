@@ -8,9 +8,10 @@ PetitionApp = React.createClass do
   getInitialState: -> { data: [], user: null, isPetitioned: false}
   componentWillMount: ->
     @bindAsArray (new Firebase "#{firebaseApp}/issues/fireman-owyeu8i3t7l7rves/petitioners"), 'data'
-    @auth = new FirebaseSimpleLogin @firebaseRefs['data'], (error, {uid}:user) ~>
+    @auth = new FirebaseSimpleLogin @firebaseRefs['data'], (error, user) ~>
       return console error if error
       if user
+        { uid } = user
         @setState user: user
         ref = @firebaseRefs.data.child "#{uid}" #startAt user.uid .endAt user.uid
         ref.on 'child_added', ~>
@@ -20,10 +21,12 @@ PetitionApp = React.createClass do
         @setState user: null
 
   handlePetitionSubmit: ({uid}:petition) ->
+    #delete petition.email
     petitioners = @state.data
     petitioners.push petition
     @setState data: petitioners
-    @firebaseRefs.data.setWithPriority ("#{uid}": petition), Firebase.ServerValue.TIMESTAMP
+    @firebaseRefs.data.child "#{uid}" .setWithPriority petition, Firebase.ServerValue.TIMESTAMP
+    #@firebaseRefs.user.setWithPriority ("#{uid}": email)
 
   handleLogin: ->
     @auth.login 'facebook', do
