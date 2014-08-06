@@ -11,69 +11,69 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise("/");
     $stateProvider.
-      state('index',{
-      url: '/',
+      state('position',{
+      url: '/position',
       data: {
         text: '全部'
       },
-      templateUrl: '/partials/index.html',
-      controller: 'indexCtrl'
+      templateUrl: '/partials/position.html',
+      controller: 'positionCtrl'
     }).
-      state('index.kmt',{
+      state('position.kmt',{
       url: 'kmt',
       data: {
         text: '中國國民黨'
       },
-      templateUrl: '/partials/index.html',
-      controller: 'indexCtrl'
+      templateUrl: '/partials/position.html',
+      controller: 'positionCtrl'
     }).
-      state('index.dpp',{
+      state('position.dpp',{
       url: 'dpp',
       data: {
         text: '民主進步黨'
       },
-      templateUrl: '/partials/index.html',
-      controller: 'indexCtrl'
+      templateUrl: '/partials/position.html',
+      controller: 'positionCtrl'
     }).
-      state('index.pfp',{
+      state('position.pfp',{
       url: 'pfp',
       data: {
         text: '親民黨'
       },
-      templateUrl: '/partials/index.html',
-      controller: 'indexCtrl'
+      templateUrl: '/partials/position.html',
+      controller: 'positionCtrl'
     }).
-      state('index.tsu',{
+      state('position.tsu',{
       url: 'tsu',
       data: {
         text: '台灣團結聯盟'
       },
-      templateUrl: '/partials/index.html',
-      controller: 'indexCtrl'
+      templateUrl: '/partials/position.html',
+      controller: 'positionCtrl'
     }).
-      state('index.npsu',{
+      state('position.npsu',{
       url: 'npsu',
       data: {
         text: '無黨團結聯盟'
       },
-      templateUrl: '/partials/index.html',
-      controller: 'indexCtrl'
+      templateUrl: '/partials/position.html',
+      controller: 'positionCtrl'
     }).
-      state('index.no-party',{
+      state('position.no-party',{
       url: 'no-party',
       data: {
         text: '無黨籍'
       },
-      templateUrl: '/partials/index.html',
-      controller: 'indexCtrl'
+      templateUrl: '/partials/position.html',
+      controller: 'positionCtrl'
     }).
       state('list',{
       url: '/list',
-      templateUrl: '/partials/list.html',
+      templateUrl: '/partials/position.html',
       controller: 'listCtrl'
     }).
       state('about',{
-      url: '/about',
+      url: '/',
       templateUrl: '/partials/about.html',
       controller: 'aboutCtrl'
     }).
