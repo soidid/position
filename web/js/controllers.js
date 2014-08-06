@@ -172,7 +172,7 @@ ivodControllers.controller('aboutCtrl', ['$location', '$scope', 'lyData','$http'
   function ($location, $scope, lyData, $http, $state) {
     //console.log("aboutCtrl:"+$location.path());
     if($location.path() !=='/sign') {
-      $(document.body).animate({scrollTop: 0 }, '500', 'swing');
+      $(document.body).animate({scrollTop: 0 }, 500, 'swing');
     }
     $scope.groups = [];
 
@@ -214,7 +214,7 @@ ivodControllers.controller('aboutCtrl', ['$location', '$scope', 'lyData','$http'
       var target = $("#petition_component").offset().top - 50;
 
       //console.log("$location.path()==='/sign'");
-      body.animate({scrollTop:target}, '500', 'swing');
+      body.animate({scrollTop:target}, 500, 'swing');
 
     }
 
@@ -231,7 +231,7 @@ ivodControllers.controller('navCtrl', ['$scope', '$state',
      var target = $("#petition_component").offset().top - 50;
 
      //console.log("goPetition:"+target);
-     body.animate({scrollTop:target}, '500', 'swing');
+     body.animate({scrollTop:target}, 1000, 'swing');
 
 
 
