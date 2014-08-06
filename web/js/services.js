@@ -2,9 +2,9 @@
 var lyServices = angular.module('lyServices', []);
 
 lyServices.factory('lyData', ['$http','$q',function($http, $q){
-    var info_url = "data/ly-info.json";
-    var position_url = "data/ly-position.json";
-    var group_url = "data/group.json";
+    var info_url = "/data/ly-info.json";
+    var position_url = "/data/ly-position.json";
+    var group_url = "/data/group.json";
     var data = [];
     iso3166tw = {
     "CHA": "彰化縣",
@@ -143,7 +143,6 @@ lyServices.factory('lyData', ['$http','$q',function($http, $q){
 
     };
     return { getData: getData, getGroup:getGroup };
-
 
  }]);
 }).call(this);
