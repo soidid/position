@@ -8,11 +8,11 @@ PetitionApp = React.createClass do
   getInitialState: -> { data: [], user: null, isPetitioned: false}
   componentWillMount: ->
     @bindAsArray (new Firebase "#{firebaseApp}/issues/fireman-owyeu8i3t7l7rves/petitioners"), 'data'
-    @auth = new FirebaseSimpleLogin @firebaseRefs['data'], (error, user) ~>
+    @auth = new FirebaseSimpleLogin @firebaseRefs['data'], (error, {uid}:user) ~>
       return console error if error
       if user
         @setState user: user
-        ref = @firebaseRefs.data.startAt user.uid .endAt user.uid
+        ref = @firebaseRefs.data.child "#{uid}" #startAt user.uid .endAt user.uid
         ref.on 'child_added', ~>
           if it.val!
             @setState isPetitioned: true
@@ -23,8 +23,7 @@ PetitionApp = React.createClass do
     petitioners = @state.data
     petitioners.push petition
     @setState data: petitioners
-    new-peition-ref = @firebaseRefs.data.push! #petition
-    new-peition-ref.setWithPriority petition, uid
+    @firebaseRefs.data.setWithPriority ("#{uid}": petition), Firebase.ServerValue.TIMESTAMP
 
   handleLogin: ->
     @auth.login 'facebook', do
@@ -64,10 +63,14 @@ PetitionList = React.createClass do
 
 Petitioner = React.createClass do
   displayName: 'PetitionPerson'
+  componentDidMount: ->
+    $ @getDOMNode! .popup!#if @Mounted!
   render: ->
-    div {className: 'petitioner'},
+    _displayName = @props.author
+    _displayName = "#{@props.author.substring(0,15)}..." if @props.author.length >= 15
+    div {className: 'petitioner', 'data-content': @props.author },
       img { src: @props.avatar }
-      div {className: 'name'}, this.props.author
+      div {className: 'name' }, _displayName
 
 FBAuthButton = React.createClass do
   displayName: 'FBAuthButton'
