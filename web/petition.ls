@@ -1,6 +1,6 @@
 { div, img, form, button, label, input, span, em } = React.DOM
 
-firebaseApp = 'https://petition.firebaseio.com/'
+firebaseApp = 'https://99fireman.firebaseio.com/'
 
 PetitionApp = React.createClass do
   displayName: 'PetitionApp'
