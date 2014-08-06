@@ -99,6 +99,3 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 
 
 }]);
-
-//Mount Node Here
-//React.renderComponent(PetitionApp(), );

@@ -12,7 +12,8 @@ gulp.task 'ls' <[ clean ]> ->
   require! 'gulp-livescript'
   gulp.src 'web/*.ls'
     .pipe gulp-livescript!
-    .pipe gulp.dest 'web'
+    .pipe gulp-if production, gulp-uglify!
+    .pipe gulp.dest 'public'
 
 gulp.task 'js:app' <[ clean ls ]> ->
   app = gulp.src [
@@ -20,7 +21,6 @@ gulp.task 'js:app' <[ clean ls ]> ->
     * 'web/js/controllers.js'
     * 'web/js/jquery.tablesort.js'
     * 'web/js/services.js'
-    * 'web/petition.js'
   ]
     .pipe gulp-concat 'app.js'
     .pipe gulp-if production, gulp-uglify!
@@ -55,6 +55,7 @@ gulp.task 'dev' <[ build ]>  ->
   app = express!
 
   app.use express.static path.resolve 'public'
+  app.use '*', (req, res) -> res.sendfile 'public/index.html'
   app.listen PORT, ->
     gutil.log "Server Listen on #{PORT}"
 
