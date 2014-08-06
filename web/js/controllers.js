@@ -86,9 +86,9 @@ ivodControllers.controller('indexCtrl', ['$state','$location','$scope', 'lyData'
 
     //Determin if it's at the bottom of the page
     //http://stackoverflow.com/questions/3898130/how-to-check-if-a-user-has-scrolled-to-the-bottom
-    
+
     $(window).scroll(function() {
-     
+
        //console.log("petition component: "+$("#petition_component").height());
        // bottom_height = $("#petition_component").height() + 100;
        var bottom_height = 100;
@@ -103,7 +103,7 @@ ivodControllers.controller('indexCtrl', ['$state','$location','$scope', 'lyData'
            $("#bottom_join").addClass("join_button_area_top");
        }
     });
-   
+
     $scope.goLegi = function(url){
         $location.path("legi/"+url);
     };
@@ -171,6 +171,9 @@ ivodControllers.controller('footCtrl', ['$location','$scope',
 ivodControllers.controller('aboutCtrl', ['$location', '$scope', 'lyData','$http', '$state',
   function ($location, $scope, lyData, $http, $state) {
     //console.log("aboutCtrl:"+$location.path());
+    if($location.path() !=='/sign') {
+      $(document.body).animate({scrollTop: 0 }, '500', 'swing');
+    }
     $scope.groups = [];
 
     if($scope.groups.length==0){
@@ -222,20 +225,20 @@ ivodControllers.controller('navCtrl', ['$scope', '$state',
   function ($scope, $state) {
      $scope.$state = $state;
      $scope.goPetition = function(){
-      
-      
+
+
      var body = $("html, body");
      var target = $("#petition_component").offset().top - 50;
 
      //console.log("goPetition:"+target);
      body.animate({scrollTop:target}, '500', 'swing');
 
-      
-      
+
+
 
      };
   }
-  
+
 ]);
 
 ivodControllers.filter('byParty', ['$state', '$filter', function ($state, $filter) {
