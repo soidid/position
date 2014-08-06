@@ -59,7 +59,7 @@ PetitionList = React.createClass do
         Petitioner author: displayName, avatar: avatarURL
     div {className: 'petition-list'},
       div {className: 'issue-petitioners'}, "目前已經有 #{@props.data.length} 人連署"
-      { personNodes }
+      div {className: 'petitioners'}, { personNodes }
       span {className: 'more'}, "...以及其他#{@props.data.length - count}人。" if @props.data.length - count > 0
 
 Petitioner = React.createClass do
@@ -112,5 +112,4 @@ PetitionForm = React.createClass do
       input {type: 'hidden', value: @state.avatarURL }
       button { type: 'submit', onSubmit: @handleSubmit }, '我要連署'
 
-
-React.renderComponent PetitionApp!, document.body
+React.renderComponent PetitionApp!, document.getElementById 'main_segment'

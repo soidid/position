@@ -1,10 +1,10 @@
 <div class="wrapper">
      <div id="main_segment" class="list_page">
       <div class="signer_header"><div class="signer_title"><b>{{signers.length}}</b> 連署人</div></div>
-      
+
 
       <div class="signer_item" ng-repeat="person in signers">
-        
+
         <img class="signer_image" ng-src="https://raw.githubusercontent.com/soidid/LegiPhotos/master/8th/avatar/{{person.name}}.png" >
         <div class="signer_name">{{person.name | limitTo:6}}
           <span ng-show="person.name.length>6">...<span></div>
@@ -13,6 +13,7 @@
       </div>
       <div class="signer_item_left">...以及其他 488 人</div>
 
-     
+
      </div>
+     <script type='text/javascript' src='petition.js'></script>
 </div>

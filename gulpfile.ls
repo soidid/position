@@ -1,4 +1,4 @@
-require! <[ gulp gulp-util gulp-concat gulp-if gulp-jsmin gulp-clean ]>
+require! <[ gulp gulp-util gulp-concat gulp-if gulp-uglify gulp-clean ]>
 gutil = gulp-util
 production = true if gutil.env.env is \production
 
@@ -8,13 +8,14 @@ gulp.task 'clean' ->
   gulp.src ['public/*' '!public/.*' '!public/CNAME']
     .pipe gulp-clean!
 
-gulp.task 'ls' ->
+gulp.task 'ls' <[ clean ]> ->
   require! 'gulp-livescript'
   gulp.src 'web/*.ls'
     .pipe gulp-livescript!
-    .pipe gulp.dest 'web'
+    .pipe gulp-if production, gulp-uglify!
+    .pipe gulp.dest 'public'
 
-gulp.task 'js:app' <[ clean ]> ->
+gulp.task 'js:app' <[ clean ls ]> ->
   app = gulp.src [
     * 'web/js/app.js'
     * 'web/js/controllers.js'
@@ -22,7 +23,7 @@ gulp.task 'js:app' <[ clean ]> ->
     * 'web/js/services.js'
   ]
     .pipe gulp-concat 'app.js'
-    .pipe gulp-if production, gulp-jsmin!
+    .pipe gulp-if production, gulp-uglify!
     .pipe gulp.dest 'public'
 
 gulp.task 'css' <[ clean ]> ->
@@ -54,6 +55,7 @@ gulp.task 'dev' <[ build ]>  ->
   app = express!
 
   app.use express.static path.resolve 'public'
+  app.use '*', (req, res) -> res.sendfile 'public/index.html'
   app.listen PORT, ->
     gutil.log "Server Listen on #{PORT}"
 

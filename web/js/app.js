@@ -99,5 +99,3 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 
 
 }]);
-
-
