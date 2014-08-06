@@ -107,11 +107,10 @@ ivodControllers.controller('indexCtrl', ['$state','$location','$scope', 'lyData'
 
   }
 ]);
-ivodControllers.controller('legCtrl', ['$location','$state','$scope', 'lyData','$http',
-  function ($location,$state,$scope,lyData, $http) {
-    console.log($state);
+ivodControllers.controller('legCtrl', ['$state','$scope', 'lyData',
+  function ($state,$scope,lyData) {
     if($state.params.legId){
-      $scope.legId = $state.params.legId;
+      $scope.legId = +$state.params.legId;
     }else{
       $scope.legId = 1;
     };
