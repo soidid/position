@@ -20,14 +20,13 @@ PetitionApp = React.createClass do
       else
         @setState user: null
 
-  handlePetitionSubmit: ({uid}:petition) ->
-    #delete petition.email
+  handlePetitionSubmit: ({uid, email}:petition) ->
+    delete petition.email
     petitioners = @state.data
     petitioners.push petition
     @setState data: petitioners
     @firebaseRefs.data.child "#{uid}" .setWithPriority petition, Firebase.ServerValue.TIMESTAMP
-    #@firebaseRefs.user.setWithPriority ("#{uid}": email)
-
+    @firebaseRefs.data.root().child "users/#{uid}" .setWithPriority email: email, Firebase.ServerValue.TIMESTAMP
   handleLogin: ->
     @auth.login 'facebook', do
       rememberMe: true
