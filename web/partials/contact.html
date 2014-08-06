@@ -1,7 +1,22 @@
+<div class="wrapper">
 <div class="ui segment" id="main_segment">
 
-<h2 class="ui dividing header"><i class="user icon"></i>聯絡我們</h2>
-       <p>加入共同發起團體：joysponge03 [at] watchout.tw</p> 
-       <p>聯絡：joysponge03 [at] watchout.tw</p> 
+<h2 class="ui dividing header"><i class="user icon"></i>共同發起團體</h2>
+<p>
+<div class="ui horizontal bulleted list">
+  <div class="item" ng-repeat="g in groups" >
+    <a href="{{g.website}}" target="_blank">{{g.name}}</a>
+  </div>
+ 
+</div>
+</p>
+
+<h2 class="ui dividing header"><i class="comment outline icon"></i>聯絡我們</h2>
+       <p>加入共同發起團體，請來信：joysponge03 [at] watchout.tw</p> 
+       <p>聯絡我們：joysponge03 [at] watchout.tw</p> 
        <p>錯誤回報：dev [at] watchout.tw</p> 
+
+<h2 class="ui dividing header"><i class="info letter icon"></i>關於</h2>
+   <p>本站由<a class="link" href="//watchout.tw" target="_blank"> 沃草 Watchout </a>製作，以<a class="link" href="//watchout.mit-license.org/MIT" target="_blank"> MIT </a>方式授權。</p>
+</div>
 </div>

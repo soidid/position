@@ -88,7 +88,8 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     }).
       state('contact',{
       url: '/contact',
-      templateUrl: '/partials/contact.html'
+      templateUrl: '/partials/contact.html',
+      controller: 'aboutCtrl'
     }).
       state('legi',{
       url: '/legi',
