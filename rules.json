@@ -1,0 +1,20 @@
+{
+  "rules": {
+    "issues":{
+      "$issue":{
+        "petitioners" :{
+          ".read": true,
+          "$petitioner" :{
+            ".write": "auth.uid == $petitioner && !data.exists()"
+
+          }
+        }
+      }
+    },
+    "users": {
+      "$user": {
+        ".write": "auth.uid == $user && !data.exists()"
+      }
+    }
+  }
+}

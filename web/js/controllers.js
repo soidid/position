@@ -185,7 +185,7 @@ ivodControllers.controller('aboutCtrl', ['$location', '$scope', 'lyData','$http'
     }
     $scope.goback = function(){
       var body = $("html, body");
-      body.animate({scrollTop:0}, '500', 'swing');
+      body.animate({scrollTop:0}, 500, 'swing');
 
     };
     $scope.showBox = function(){
