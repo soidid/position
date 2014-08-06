@@ -45,7 +45,7 @@ PetitionApp = React.createClass do
           displayName: @state.user.displayName
           email: @state.user.thirdPartyUserData.email
           avatarURL: @state.user.thirdPartyUserData.picture.data.url
-      div {}, '我已連署過' if @state.isPetitioned and @state.user
+      div {className: 'done'}, '我已連署過' if @state.isPetitioned and @state.user
       PetitionList data: @state.data
 
 
