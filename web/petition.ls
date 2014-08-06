@@ -59,8 +59,8 @@ PetitionList = React.createClass do
         Petitioner author: displayName, avatar: avatarURL
     div {className: 'petition-list'},
       div {className: 'issue-petitioners'}, "目前已經有 #{@props.data.length} 人連署"
-      div {className: 'petitioners'}, { personNodes }
-      span {className: 'more'}, "...以及其他#{@props.data.length - count}人。" if @props.data.length - count > 0
+      div {className: 'petitioners'}, { personNodes },
+        span {className: 'more'}, "...以及其他#{@props.data.length - count}人。" if @props.data.length - count > 0
 
 Petitioner = React.createClass do
   displayName: 'PetitionPerson'
