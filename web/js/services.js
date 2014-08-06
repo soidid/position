@@ -1,3 +1,4 @@
+(function(){
 var lyServices = angular.module('lyServices', []);
 
 lyServices.factory('lyData', ['$http','$q',function($http, $q){
@@ -93,7 +94,7 @@ lyServices.factory('lyData', ['$http','$q',function($http, $q){
     };
     function parse(info_data,position_data){
         data = [];
-        
+
         $.each(info_data, function (key, val) {
             var new_item = {};
             var peer_index = key;
@@ -103,7 +104,7 @@ lyServices.factory('lyData', ['$http','$q',function($http, $q){
                 peer_index = find_peer(position_data,val['name']);
                 //console.log(val['name']+" <> "+position_data[peer_index]['name']);
             }
-            
+
             new_item['name'] = val['name'];
             new_item['party'] = val['party'];//chinese
             new_item['party_eng'] = val['partyEng'];//chinese
@@ -115,13 +116,13 @@ lyServices.factory('lyData', ['$http','$q',function($http, $q){
             new_item['position'] = position_data[peer_index]['position'];
             new_item['reason'] = position_data[peer_index]['reason'];
             data.push(new_item);
-            
+
         });
         //console.log(data);
         return data;
     };
 	var getData = function() {
-		
+
         var deferred = $q.defer();
         $http({method:"GET", url:info_url}).success(function(info_data){
         	$http({method:"GET", url:position_url}).success(function(position_data){
@@ -129,7 +130,7 @@ lyServices.factory('lyData', ['$http','$q',function($http, $q){
             });
         });
         return deferred.promise;
-        
+
     };
     var getGroup = function(){
         var deferred = $q.defer();
@@ -142,6 +143,7 @@ lyServices.factory('lyData', ['$http','$q',function($http, $q){
 
     };
     return { getData: getData, getGroup:getGroup };
-    
+
 
  }]);
+}).call(this);

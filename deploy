@@ -16,7 +16,7 @@ rm -rf public
 git clone $REPO --depth 1 -b gh-pages public
 
 REV=`git describe --always`
-BUILD=git-$REV ./node_modules/.bin/gulp build
+BUILD=git-$REV ./node_modules/.bin/gulp build --env production
 cp public/index.html public/404.html
 cd public
 git fetch --depth 1 origin master:master

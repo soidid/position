@@ -1,3 +1,4 @@
+(function(){
 var ivodControllers = angular.module('ivodControllers',[
   'ui.router'
 ]);
@@ -15,23 +16,23 @@ ivodControllers.controller('indexCtrl', ['$state','$location','$scope', 'lyData'
        }
     };
 
-  
+
     $( window ).resize(function() {
        //console.log($( window ).width());
        $scope.setMargin();
     });
-   
+
     $scope.legislators = [];
     if($scope.legislators.length==0){
         lyData.getData().then(function(data){
-          
+
           $scope.legislators = data;
           for(var i=0;i<$scope.legislators.length;i++){
              $scope.legislators[i]['id'] = i;
           }
-          
+
           //$scope.data = $scope.legislators[37];//default, can modify to random
-    
+
         });
     }
 
@@ -51,12 +52,12 @@ ivodControllers.controller('indexCtrl', ['$state','$location','$scope', 'lyData'
       $scope.data = {};
       $scope.data = $scope.legislators[id];
       $scope.currentActiveLeg = id;
-      
+
     };
     $scope.isActiveLeg = function(id){
       return $scope.currentActiveLeg === id;
     }
-   
+
     $scope.goback = function(){
       var body = $("html, body");
       body.animate({scrollTop:0}, '500', 'swing');
@@ -88,7 +89,7 @@ ivodControllers.controller('indexCtrl', ['$state','$location','$scope', 'lyData'
            $("#bottom_search").removeClass("nav_fixed");
            $("#bottom_join").removeClass("nav_fixed");
            $("#bottom_join").removeClass("join_button_area_top");
-          
+
        }else{
            $("#bottom_search").addClass("nav_fixed");
            $("#bottom_join").addClass("nav_fixed");
@@ -118,16 +119,16 @@ ivodControllers.controller('legCtrl', ['$location','$state','$scope', 'lyData','
     $scope.legislators = [];
     if($scope.legislators.length==0){
         lyData.getData().then(function(data){
-          
+
           $scope.legislators = data;
           for(var i=0;i<$scope.legislators.length;i++){
              $scope.legislators[i]['id'] = i;
           }
           $scope.data = $scope.legislators[$scope.legId];
-          
+
         });
     }
-    
+
 
 
   }
@@ -137,15 +138,15 @@ ivodControllers.controller('listCtrl', ['$scope', 'lyData','$http',
     $scope.signers = [];
     if($scope.signers.length==0){
          lyData.getData().then(function(data){
-          
+
           $scope.signers = data;
-         
-          
-    
+
+
+
         });
     }
 
-   
+
 
   }
 ]);
@@ -165,12 +166,12 @@ ivodControllers.controller('aboutCtrl', ['$location', '$scope', 'lyData','$http'
   function ($location, $scope, lyData, $http) {
 
     $scope.groups = [];
-   
+
     if($scope.groups.length==0){
        lyData.getGroup().then(function(data){
             console.log("group");
             $scope.groups = data;
-            
+
        });
     }
     $scope.goback = function(){
@@ -199,13 +200,13 @@ ivodControllers.controller('aboutCtrl', ['$location', '$scope', 'lyData','$http'
     };
 
   }
-]);   
+]);
 
 ivodControllers.controller('navCtrl', ['$scope', '$state',
   function ($scope, $state) {
      $scope.$state = $state;
   }
-]); 
+]);
 
 ivodControllers.filter('byParty', ['$state', '$filter', function ($state, $filter) {
   return function (input) {
@@ -213,3 +214,4 @@ ivodControllers.filter('byParty', ['$state', '$filter', function ($state, $filte
     return $filter('filter')(input, {'party': $state.current.data.text});
   }
 }]);
+}).call(this);
