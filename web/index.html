@@ -63,21 +63,7 @@
 </div>
 
     <div ui-view></div>
-    <div class="footer" ng-controller="footCtrl">
-      <img class="footer_logo" src="images/watchout_logo.png" ng-click="goExternal('//watchout.tw')">
-      <div class="ui horizontal bulleted list">
-         <div class="item" ng-click="go('contact')">
-          聯絡我們
-         </div>
-         <div class="item" ng-click="goExternal('//musou.tw')">
-          國會無雙
-         </div>
-         <div class="item" ng-click="goExternal('//wethepeople.tw')">
-          市長，給問嗎
-         </div>
-
-      </div>
-   </div>
+    
 
 
 <script>(function(d, s, id) {
@@ -99,6 +85,21 @@
 </script>
 
 <div id="fb-root"></div>
+
+<div class="footer" ng-controller="footCtrl">
+      <img class="footer_logo" src="images/watchout_logo.png" ng-click="goExternal('//watchout.tw')">
+      <div class="ui horizontal bulleted list">
+         <div class="item" ng-click="go('contact')">
+          聯絡我們
+         </div>
+         <div class="item" ng-click="goExternal('//musou.tw')">
+          國會無雙
+         </div>
+         <div class="item" ng-click="goExternal('//wethepeople.tw')">
+          市長，給問嗎
+         </div>
+      </div>
+</div>
 
 </body>
 </html>
