@@ -28,7 +28,7 @@
     <div class="avatar_collection" ng-class="{'avatar_collection_for':c=='for'}">
 
       <div class="avatar_item" 
-       ng-repeat="n in legislators | byParty:party | filter:query | filter:{'position':c} | orderBy:'party'"
+       ng-repeat="n in legislators | byParty:party | filter:query | filter:{'position':c} | orderBy:'id'"
        ng-click="legClick(n.id)"
        ng-show="n.name"
        ng-class="{'avatar_item_active':isActiveLeg(n.id)}"

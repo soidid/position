@@ -118,6 +118,7 @@ lyServices.factory('lyData', ['$http','$q',function($http, $q){
             data.push(new_item);
 
         });
+        //data.sort(function(a, b) {return a['name'] - b['name']});
         //console.log(data);
         return data;
     };

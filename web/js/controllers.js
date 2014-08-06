@@ -29,6 +29,7 @@ ivodControllers.controller('indexCtrl', ['$state','$location','$scope', 'lyData'
           $scope.legislators = data;
           for(var i=0;i<$scope.legislators.length;i++){
              $scope.legislators[i]['id'] = i;
+             //console.log($scope.legislators[i]['name']);
           }
 
           //$scope.data = $scope.legislators[37];//default, can modify to random
