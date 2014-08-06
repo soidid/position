@@ -85,7 +85,10 @@ ivodControllers.controller('indexCtrl', ['$state','$location','$scope', 'lyData'
     //Determin if it's at the bottom of the page
     //http://stackoverflow.com/questions/3898130/how-to-check-if-a-user-has-scrolled-to-the-bottom
     $(window).scroll(function() {
-       if($(window).scrollTop() + $(window).height() > $(document).height() - 150) {
+     
+       //console.log("petition component: "+$("#petition_component").height());
+       var bottom_height = $("#petition_component").height() + 100;
+       if($(window).scrollTop() + $(window).height() > $(document).height() - bottom_height) {
            $("#bottom_search").removeClass("nav_fixed");
            $("#bottom_join").removeClass("nav_fixed");
            $("#bottom_join").removeClass("join_button_area_top");

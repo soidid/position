@@ -328,6 +328,7 @@ p a {
 }
 .nav_fixed{
   position: fixed;
+  z-index: 200;
 }
 .nav{
   bottom: 0px;
@@ -634,6 +635,7 @@ p a {
   margin: 0 auto;
   min-height: 500px;
   padding-top:20px;
+  margin-bottom: 100px;
 }
 /* ----- FOR REACT COMPONENT------ */
 .petition-list {

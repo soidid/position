@@ -1,5 +1,5 @@
 <div class="wrapper">
- <center>
+<center>
 <div class="about_title">
  <h3>「你們敢做，我們敢看！」無限期支持立法院 IVOD 全程轉播</h3>
 </div>
@@ -66,21 +66,28 @@
   <div class="item" ng-repeat="g in groups" >
     <a href="{{g.website}}" target="_blank">{{g.name}}</a>
   </div>
+  <div class="item join_us" ng-click="go('contact')">
+    加入共同發起團體
+  </div>
 </div>
 </p>
 
-<div class="join_us" ng-click="go('contact')">
-  加入共同發起團體
-</div>
-
-</div><!-- end of segment -->
 
 
+</div><!-- end of wrapper -->
+
+<br/><br/>
 <div class="join_button_area join_button_area_top nav_fixed" id="bottom_join">
      <i class="bullhorn icon"></i>一起採取行動！
-     <div class="ui tiny red button" ng-click="showBox()" id="join_btn">加入連署</div>
 </div>
 
+<div class="wrapper">
+
+<h2 class="ui dividing header"><i class="bullhorn icon"></i>一起採取行動！</h2>
+
+<div id="petition_component"></div>
+<script type='text/javascript' src='petition.js'></script>
+</div>
 
 
 <!-- alert box -->
