@@ -6,7 +6,7 @@ var ivodControllers = angular.module('ivodControllers',[
 
 ivodControllers.controller('positionCtrl', ['$state','$location','$scope', 'lyData','$http',
   function ($state,$location,$scope,lyData, $http) {
-    console.log("positionCtrl");
+    
 
     $scope.setMargin = function(){
        console.log("SET MARGIN");
