@@ -500,9 +500,12 @@ p, li {
 .th_right{
   float: right;
 }
+#legi_main_segment{
+  margin-top: 80px;
+}
 #main_segment{
   margin: 10px;
-  margin-top: 65px;
+  margin-top: 40px;
   min-height: 450px;
 }
 .about_section {
