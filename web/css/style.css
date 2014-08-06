@@ -684,6 +684,10 @@ p a {
 #petition_component {
   margin-bottom: 100px;
 }
+#petition_component .done{
+  display: inline-block;
+  margin-left: 20px;
+}
 #petition_component form{
   border: 1px solid rgb(230,230,230);
   margin-bottom: 30px;
