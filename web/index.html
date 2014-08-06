@@ -43,7 +43,7 @@
     議題說明
   </a>
 
-  <a class="item" ui-sref="sign" ui-sref-active="active">
+  <a class="item" ui-sref="sign" ui-sref-active="active" ng-click="goPetition()">
     加入連署
   </a>
   <!--
@@ -63,6 +63,7 @@
 
     <div ui-view></div>
     <div class="footer" ng-controller="footCtrl">
+      <img class="footer_logo" src="images/watchout_logo.png" ng-click="goExternal('//watchout.tw')">
       <div class="ui horizontal bulleted list">
          <div class="item" ng-click="go('contact')">
           聯絡我們

@@ -86,11 +86,12 @@ ivodControllers.controller('indexCtrl', ['$state','$location','$scope', 'lyData'
 
     //Determin if it's at the bottom of the page
     //http://stackoverflow.com/questions/3898130/how-to-check-if-a-user-has-scrolled-to-the-bottom
-    /*
+    
     $(window).scroll(function() {
      
        //console.log("petition component: "+$("#petition_component").height());
-       var bottom_height = $("#petition_component").height() + 100;
+       // bottom_height = $("#petition_component").height() + 100;
+       var bottom_height = 100;
        if($(window).scrollTop() + $(window).height() > $(document).height() - bottom_height) {
            $("#bottom_search").removeClass("nav_fixed");
            $("#bottom_join").removeClass("nav_fixed");
@@ -102,7 +103,7 @@ ivodControllers.controller('indexCtrl', ['$state','$location','$scope', 'lyData'
            $("#bottom_join").addClass("join_button_area_top");
        }
     });
-    */
+   
     $scope.goLegi = function(url){
         $location.path("legi/"+url);
     };
@@ -203,11 +204,13 @@ ivodControllers.controller('aboutCtrl', ['$location', '$scope', 'lyData','$http'
     $scope.go = function(url){
         $location.path(url);
     };
+
+    //console.log("$location.path(): "+$location.path());
     if($location.path()==='/sign'){
       var body = $("html, body");
       var target = $("#petition_component").offset().top - 50;
 
-      //console.log("goPetition:"+target);
+      //console.log("$location.path()==='/sign'");
       body.animate({scrollTop:target}, '500', 'swing');
 
     }
