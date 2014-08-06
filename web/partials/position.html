@@ -1,49 +1,27 @@
-<div class="ui two column divided grid" id="legi_main_segment">
-<center>
-<div class="ui small menu">
-  <a class="item" 
-  ui-sref-active="active"
-  ng-repeat="p in parties" ui-sref="{{p}}">{{$state.get(p).data.text}}</a>
+﻿
 
-</div>
-</center>
-<!--
-<div class="progress">
-                  <div class="bar"
-                  style="width:
-{{(legislators| filter:query | filter:{'state':'for','party':party}).length/(legislators | filter:query | filter:{'party':party}).length * 100}}%;"></div>
-              </div>
--->
-  <div class="three column row">
-    
-    <div class="column" ng-repeat="c in categories">
+<div class="ui segment" id="content_segment">
+  <div class="f-nav" id="nav_segment">
+       <div ng-include="'partials/leg_top.html'"></div> 
+  </div>
+<!-- -->
 
-      <div class="title_for" ng-show="c=='for'">支持
-       {{(legislators | byParty | filter:query | filter:{'position':c}).length}}</div>
-      <div class="title_pending" ng-show="c=='pending'">未表態
-       {{(legislators | byParty | filter:query | filter:{'position':c}).length}}</div>
-      <div class="title_against" ng-show="c=='against'">反對
-       {{(legislators | byParty | filter:query | filter:{'position':c}).length}}</div>
-    
-    <div class="avatar_collection" ng-class="{'avatar_collection_for':c=='for'}">
+<div id="main_content" class="main_content_margin">
 
-      <div class="avatar_item" 
-       ng-repeat="n in legislators | byParty:party | filter:query | filter:{'position':c} | orderBy:'id'"
-       ng-click="legClick(n.id)"
-       ng-show="n.name"
-       ng-class="{'avatar_item_active':isActiveLeg(n.id)}"
-       >
-
-      <img class="avatar_image" ng-src="https://raw.githubusercontent.com/soidid/LegiPhotos/master/8th/avatar/{{n.name}}.png" 
-         ng-class="{'KMT_image':n.party=='中國國民黨','DPP_image':n.party=='民主進步黨',
-                  'PFP_image':n.party=='親民黨','TSU_image':n.party=='台灣團結聯盟',
-                  'NP_image':n.party=='無黨籍','NPU_image':n.party=='無黨團結聯盟'}">
-
-     <div class="avatar_name">{{n.name}}</div>
-     </div><!-- end of avatar_item -->
-    </div><!--end of avatar_collection-->
-    </div>
-  </div><!-- end of column -->
-</div> <!-- end of row -->
-
+<div ng-include="'partials/position_part.html'"></div> 
  
+<div class="nav nav_fixed" id="bottom_search">
+搜尋：
+  <div class="ui input" id="query_input">
+    <input type="text" placeholder="打字搜尋立委，例如：內湖、台北市" ng-model="query">
+  </div>
+  
+ 
+</div>
+</div>
+
+
+</div><!-- end of main content
+
+  
+
