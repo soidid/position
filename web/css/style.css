@@ -681,16 +681,67 @@ p a {
   margin-left: 6px;
 }
 /* ------------------------------- */
+#petition_component {
+  margin-bottom: 100px;
+}
 #petition_component form{
   border: 1px solid rgb(230,230,230);
   margin-bottom: 30px;
-  padding: 5px;
+  padding-top: 10px;
+  padding-left:10px;
+  position: relative;
+
 }
-#petition_component input{
+#petition_component button{
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100px;
+  font-size: 14px;
+  background: rgb(76,102,164);
+  border-width: 0px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+
+}
+{/* 我已連署過 */
+
+  display: inline-block;
+  margin-left:10px;
+
+}
+#petition_component button:hover{
+  background: rgba(76,102,164,0.9);
+  
+}
+#petition_component .field{
+  display: inline-block;
+  margin-right: 5px;
+}
+#petition_component input[type="text"], #petition_component input[type="email"]{
   border: 1px solid rgb(230,230,230);
   padding: 5px;
   margin-left: 8px;
+  min-width: 250px;
 }
+#petition_component form button{
+  display: block;
+  margin: 10px auto;
+  padding: 5px;
+  width: 100px;
+  font-size: 14px;
+  background: rgb(214,90,90);
+  border-width: 0px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+#petition_component form button:hover{
+  background: rgba(214,90,90,0.9);
+  
+}
+
+
 
 
 
