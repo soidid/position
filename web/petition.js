@@ -196,5 +196,4 @@
       }, '我要連署'));
     }
   });
-  React.renderComponent(PetitionApp(), document.body);
 }).call(this);

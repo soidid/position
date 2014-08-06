@@ -113,4 +113,4 @@ PetitionForm = React.createClass do
       button { type: 'submit', onSubmit: @handleSubmit }, '我要連署'
 
 
-React.renderComponent PetitionApp!, document.body
+#React.renderComponent PetitionApp!, document.body
