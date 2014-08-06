@@ -34,7 +34,7 @@
 <body>
 
 
-<div class="ui inverted menu" ng-controller="navCtrl" style="height:40px;">
+<div class="ui inverted menu" ng-controller="navCtrl" style="height:40px;" id="top_nav_menu">
 
   <a class="item" ui-sref="index" ui-sref-active="active">
     立委表態
@@ -42,9 +42,15 @@
   <a class="item" ui-sref="about" ui-sref-active="active">
     議題說明
   </a>
-  <a class="item" ui-sref="list" ui-sref-active="active">
-    連署名單
+
+  <a class="item" ui-sref="sign" ui-sref-active="active">
+    加入連署
   </a>
+  <!--
+  <a class="item" ng-click="goPetition()" ng-show="state == 'about'">
+    加入連署
+  </a>
+  -->
   <a class="item" ui-sref="data" ui-sref-active="active">
     統計方式
   </a>

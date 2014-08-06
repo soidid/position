@@ -1,8 +1,9 @@
-<div ng-hide="data.name">
-   <center>請點選下方立委頭像。</center>
-</div>
+
 
 <div class="wrapper">
+  <div ng-hide="data.name">
+   <center><br/>請點選下方立委頭像。</center>
+  </div>
 <div class="avatar_item_top" ng-show="data.name">
   <img class="avatar_image" ng-src="https://raw.githubusercontent.com/soidid/LegiPhotos/master/8th/avatar/{{data.name}}.png" 
   ng-class="{'KMT_image':data.party=='中國國民黨','DPP_image':data.party=='民主進步黨',
@@ -11,7 +12,7 @@
 
 </div>
 <div class="talk_state" ng-show="data">
-  <i class="quote left icon"></i>我<span ng-show="data.position=='for'" class="circular_label circular_label_green">支持</span><span ng-show="data.position=='pending'" class="circular_label circular_label_gray">尚未表態是否支持</span><span ng-show="data.position=='against'" class="circular_label circular_label_red">反對</span>委員會透明化。 {{data.reason}}<i class="quote right icon"></i>
+  <i class="quote left icon"></i>我<span ng-show="data.position=='for'" class="circular_label circular_label_green">支持</span><span ng-show="data.position=='pending'" class="circular_label circular_label_gray">尚未表態是否支持</span><span ng-show="data.position=='against'" class="circular_label circular_label_red">反對</span>改善消防員工作權益。 {{data.reason}}<i class="quote right icon"></i>
   
   <div>
     －{{data.name}}，{{data.party}}立法委員（{{data.constituency}}）

@@ -66,11 +66,13 @@ ivodControllers.controller('indexCtrl', ['$state','$location','$scope', 'lyData'
 
 
 
+
     //keep top info segment fixed on top
+    /*
     $scope.nav = $("#nav_segment");
     $(window).scroll(function () {
 
-        if ($(this).scrollTop() > 68) {
+        if ($(this).scrollTop() > 38) {
           $scope.nav.addClass("f-nav");
           $scope.nav.removeClass("f-fix");
         } else {
@@ -78,12 +80,13 @@ ivodControllers.controller('indexCtrl', ['$state','$location','$scope', 'lyData'
           $scope.nav.addClass("f-fix");
         }
     });
-
+    */
 
 
 
     //Determin if it's at the bottom of the page
     //http://stackoverflow.com/questions/3898130/how-to-check-if-a-user-has-scrolled-to-the-bottom
+    /*
     $(window).scroll(function() {
      
        //console.log("petition component: "+$("#petition_component").height());
@@ -99,7 +102,7 @@ ivodControllers.controller('indexCtrl', ['$state','$location','$scope', 'lyData'
            $("#bottom_join").addClass("join_button_area_top");
        }
     });
-
+    */
     $scope.goLegi = function(url){
         $location.path("legi/"+url);
     };
@@ -164,9 +167,9 @@ ivodControllers.controller('footCtrl', ['$location','$scope',
   }
 ]);
 
-ivodControllers.controller('aboutCtrl', ['$location', '$scope', 'lyData','$http',
-  function ($location, $scope, lyData, $http) {
-
+ivodControllers.controller('aboutCtrl', ['$location', '$scope', 'lyData','$http', '$state',
+  function ($location, $scope, lyData, $http, $state) {
+    //console.log("aboutCtrl:"+$location.path());
     $scope.groups = [];
 
     if($scope.groups.length==0){
@@ -200,6 +203,14 @@ ivodControllers.controller('aboutCtrl', ['$location', '$scope', 'lyData','$http'
     $scope.go = function(url){
         $location.path(url);
     };
+    if($location.path()==='/sign'){
+      var body = $("html, body");
+      var target = $("#petition_component").offset().top - 50;
+
+      //console.log("goPetition:"+target);
+      body.animate({scrollTop:target}, '500', 'swing');
+
+    }
 
   }
 ]);
@@ -207,7 +218,21 @@ ivodControllers.controller('aboutCtrl', ['$location', '$scope', 'lyData','$http'
 ivodControllers.controller('navCtrl', ['$scope', '$state',
   function ($scope, $state) {
      $scope.$state = $state;
+     $scope.goPetition = function(){
+      
+      
+     var body = $("html, body");
+     var target = $("#petition_component").offset().top - 50;
+
+     //console.log("goPetition:"+target);
+     body.animate({scrollTop:target}, '500', 'swing');
+
+      
+      
+
+     };
   }
+  
 ]);
 
 ivodControllers.filter('byParty', ['$state', '$filter', function ($state, $filter) {

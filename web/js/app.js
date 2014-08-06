@@ -77,6 +77,11 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       templateUrl: '/partials/about.html',
       controller: 'aboutCtrl'
     }).
+      state('sign',{
+      url: '/sign',
+      templateUrl: '/partials/about.html',
+      controller: 'aboutCtrl'
+    }).
       state('data',{
       url: '/data',
       templateUrl: '/partials/data.html'
