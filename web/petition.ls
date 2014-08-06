@@ -64,10 +64,14 @@ PetitionList = React.createClass do
 
 Petitioner = React.createClass do
   displayName: 'PetitionPerson'
+  componentDidMount: ->
+    $ @getDOMNode! .popup!#if @Mounted!
   render: ->
-    div {className: 'petitioner'},
+    _displayName = @props.author
+    _displayName = "#{@props.author.substring(0,15)}..." if @props.author.length >= 15
+    div {className: 'petitioner', 'data-content': @props.author },
       img { src: @props.avatar }
-      div {className: 'name'}, this.props.author
+      div {className: 'name' }, _displayName
 
 FBAuthButton = React.createClass do
   displayName: 'FBAuthButton'
