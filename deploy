@@ -4,6 +4,7 @@ git --version
 upstream=$1
 : ${upstream:=origin}
 : ${REPO:=git@github.com:soidid/ly-tel}
+: ${FIREBASE:=https://99fireman.firebaseio.com/}
 git fetch $upstream
 if [ `git rev-list HEAD...$upstream/master --count` -ne 0 ]; then
   echo "not deploying"
@@ -25,3 +26,9 @@ echo "regen for $REV" | git commit-tree `git write-tree` -p `git rev-parse HEAD`
 git push origin gh-pages
 cd ..
 rm -f public/404.html
+
+if [ "x$FIREBASE" != "x" ]
+then
+	echo $FIREBASE
+	cat rules.json | curl -X PUT -d @- $FIREBASE/.settings/rules.json?auth=$FIREBASE_SECRET
+fi
