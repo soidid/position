@@ -4,8 +4,9 @@ var ivodControllers = angular.module('ivodControllers',[
 ]);
 
 
-ivodControllers.controller('indexCtrl', ['$state','$location','$scope', 'lyData','$http',
+ivodControllers.controller('positionCtrl', ['$state','$location','$scope', 'lyData','$http',
   function ($state,$location,$scope,lyData, $http) {
+    
 
     $scope.setMargin = function(){
        console.log("SET MARGIN");
@@ -39,7 +40,7 @@ ivodControllers.controller('indexCtrl', ['$state','$location','$scope', 'lyData'
 
     $scope.categories = ['for','pending','against'];
     $scope.parties = [
-      'index', 'index.kmt','index.dpp','index.pfp','index.tsu','index.npsu','index.no-party'
+      'position', 'position.kmt','position.dpp','position.pfp','position.tsu','position.npsu','position.no-party'
       ];
 
     $scope.$state = $state;
@@ -244,7 +245,7 @@ ivodControllers.controller('navCtrl', ['$scope', '$state',
 
 ivodControllers.filter('byParty', ['$state', '$filter', function ($state, $filter) {
   return function (input) {
-    if ($state.current.name == 'index') return input;
+    if ($state.current.name == 'position') return input;
     return $filter('filter')(input, {'party': $state.current.data.text});
   }
 }]);
