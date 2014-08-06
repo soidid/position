@@ -681,7 +681,16 @@ p a {
   margin-left: 6px;
 }
 /* ------------------------------- */
-
+#petition_component form{
+  border: 1px solid rgb(230,230,230);
+  margin-bottom: 30px;
+  padding: 5px;
+}
+#petition_component input{
+  border: 1px solid rgb(230,230,230);
+  padding: 5px;
+  margin-left: 8px;
+}
 
 
 
