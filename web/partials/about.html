@@ -33,7 +33,7 @@
 <p>
 <div class="ui horizontal bulleted list">
   <div class="item" ng-repeat="g in groups" >
-    <a href="{{g.website}}" target="_blank">{{g.name}}</a>
+    <a ng-href="{{g.website}}" target="_blank">{{g.name}}</a>
   </div>
   <div class="item join_us" ng-click="go('contact')">
     加入共同發起團體
