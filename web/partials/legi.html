@@ -1,25 +1,39 @@
 <div class="wrapper">
-     <div id="main_segment">
-     <img class="leg_img" ng-src="https://raw.githubusercontent.com/soidid/LegiPhotos/master/8th/{{data.name}}.png" 
-         ng-class="{'KMT_image':data.party=='中國國民黨','DPP_image':data.party=='民主進步黨',
-                  'PFP_image':data.party=='親民黨','TSU_image':data.party=='台灣團結聯盟',
-                  'NP_image':data.party=='無黨籍','NPU_image':data.party=='無黨團結聯盟'}">
-
-      {{data.name}}
-      {{data.party}}
-      {{data.constituency}}
-      {{data.constituency_detail}}
-      <div ng-show="data.contact"
-           ng-repeat="(key,value) in data.contact">
-               {{key}}<br/>
-               電話：{{value.phone}}<br/>
-               傳真：{{value.fax}}<br/>
-               地址：{{value.address}}<br/>
+  <div class="legi_page">
+     
+      <img class="leg_img" ng-src="https://raw.githubusercontent.com/soidid/LegiPhotos/master/8th/{{data.name}}.png" ng-class="{'KMT_image':data.party=='中國國民黨','DPP_image':data.party=='民主進步黨','PFP_image':data.party=='親民黨','TSU_image':data.party=='台灣團結聯盟','NP_image':data.party=='無黨籍','NPU_image':data.party=='無黨團結聯盟'}">
+      
+      <div class="talk_state_legi">
+          <i class="quote left icon"></i>我<span ng-show="data.position=='for'" class="circular_label circular_label_green">支持</span><span ng-show="data.position=='pending'" class="circular_label circular_label_gray">尚未表態是否支持</span><span ng-show="data.position=='against'" class="circular_label circular_label_red">反對</span>委員會透明化。 {{data.reason}}<i class="quote right icon"></i>
+          <br/>－{{data.name}}，{{data.party}}立法委員（{{data.constituency}}）
       </div>
 
-      {{data.position}}
-      {{data.reason}}
-
-     
-     </div>
-</div>
+      <table class="ui basic table">
+           <tbody>
+             <tr>
+               <td>姓名</td>
+               <td>{{data.name}}</td>
+             </tr>
+             <tr>
+               <td>黨籍</td>
+               <td>{{data.party}}</td>
+             </tr>
+             <tr>
+               <td>選區</td>
+               <td>{{data.constituency}}</td>
+             </tr>
+             <tr>
+               <td>選區範圍</td>
+               <td>{{data.constituency_detail}}</td>
+             </tr>
+             <tr ng-repeat="(key,value) in data.contact">
+               <td>{{key}}</td>
+               <td>電話：{{value.phone}}<br/>
+               傳真：{{value.fax}}<br/>
+               地址：{{value.address}}<br/>
+               </td>
+             </tr>
+            </tbody>
+      </table>
+  </div><!-- end of main_segment -->
+</div><!-- end of wrapper -->

@@ -112,4 +112,4 @@ PetitionForm = React.createClass do
       input {type: 'hidden', value: @state.avatarURL }
       button { type: 'submit', onSubmit: @handleSubmit }, '我要連署'
 
-React.renderComponent PetitionApp!, document.getElementById 'main_segment'
+React.renderComponent PetitionApp!, document.getElementById 'petition_component'
