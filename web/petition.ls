@@ -115,7 +115,7 @@ PetitionForm = React.createClass do
         label {}, 'Email'
         input {type: 'email', value: @state.email, onChange: @handleEmailChange }
       div {className: 'field'},
-        input {type: 'checkbox', checked: @state.hiddenMe, onChange: @handleDisplayCheck }, '不要顯示'
+        input {type: 'checkbox', checked: @state.hiddenMe, onChange: @handleDisplayCheck }, '不要顯示頭像'
       input {type: 'hidden', value: @state.uid }
       input {type: 'hidden', value: @state.avatarURL }
       button { type: 'submit', onSubmit: @handleSubmit }, '我要連署'
