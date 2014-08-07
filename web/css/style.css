@@ -513,13 +513,15 @@ p, li {
   margin-top: 40px;
   min-height: 450px;
 }
+#about_wrapper {
+  margin-top: 40px;
+}
 .about_section {
   /* https://www.flickr.com/photos/69214385@N04/8669592973 */
   background: url(../images/about-bg.jpg) 50% 0 repeat fixed; min-height: 400px;
   /* background-size: 100% auto; */
   background-size: auto 100%; 
   padding: 20px;
-  margin-bottom: 40px;
   position: relative;
 }
 .about_story {
@@ -1078,6 +1080,19 @@ main {
   width: 100%;
   color: rgb(50,53,48);
 }
+.fb-like {
+  position: absolute;
+  top:10px;
+  left:10px;
+}
+/* 
+
+.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+    
+    position: absolute !important;
+  right:0px !important;
+  top:0px !important;
+} */
 
 
 

@@ -242,6 +242,7 @@ ivodControllers.controller('navCtrl', ['$scope', '$state',
      var appbarElement = querySelector('.app-bar');
      var menuBtn = querySelector('.menu');
      var main = querySelector('main');
+     //var main = querySelector('body');
 
      $scope.closeMenu = function() {
        body.classList.remove('open');
