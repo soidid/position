@@ -27,7 +27,7 @@ git push origin gh-pages
 cd ..
 rm -f public/404.html
 
-if [ "x$FIREBASE" != "x" ]
+if [ "x$FIREBASE_SECRET" != "x" ]
 then
 	echo $FIREBASE
 	cat rules.json | curl -X PUT -d @- $FIREBASE/.settings/rules.json?auth=$FIREBASE_SECRET
