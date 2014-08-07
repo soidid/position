@@ -67,11 +67,6 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       templateUrl: '/partials/position.html',
       controller: 'positionCtrl'
     }).
-      state('list',{
-      url: '/list',
-      templateUrl: '/partials/position.html',
-      controller: 'listCtrl'
-    }).
       state('about',{
       url: '/',
       templateUrl: '/partials/about.html',

@@ -34,7 +34,7 @@
 </head>
 <body>
 
-
+<!--
 <div class="ui inverted menu" ng-controller="navCtrl" style="height:40px;" id="top_nav_menu">
 
   <a class="item" ui-sref="about" ui-sref-active="active">
@@ -50,13 +50,35 @@
     統計方式
   </a>
    <div class="right menu">
-
-          <a class="item"><div class="fb-like" data-href="http://fireman.today" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div></a>
-
+      <a class="item"><div class="fb-like" data-href="http://fireman.today" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div></a>
    </div>
 </div>
+-->
+<!-- test new nav -->
+<div ng-controller="navCtrl" >
+  <header class="app-bar promote-layer">
+        <div class="app-bar-container">
+          <div class="menu" ng-click="toggleMenu()">menu</div>
+          
+          <section class="app-bar-actions">
+          <!-- Put App Bar Buttons Here -->
+          </section>
+        </div>
+  </header>
+  <nav class="navdrawer-container promote-layer">
+    <ul>
+      <li><a ui-sref="about" ui-sref-active="active" ng-click="closeMenu()">99119 搶救消防員</a></li>
+      <li><a ui-sref="sign" ui-sref-active="active" ng-click="goPetition()">加入連署</a></li>
+      <li><a ui-sref="position" ui-sref-active="active" ng-click="closeMenu()">立委表態</a></li>
+      <li><a ui-sref="data" ui-sref-active="active" ng-click="closeMenu()">統計方式</a></li>
+    </ul>
+  </nav>
+  <main><div ui-view></div></main>
+</div>
+<!-- ////////////  -->
 
-    <div ui-view></div>
+
+   
 
 
 
@@ -79,7 +101,7 @@
 </script>
 
 <div id="fb-root"></div>
-
+<!--
 <div class="footer" ng-controller="footCtrl">
       <img class="footer_logo" src="images/watchout_logo.png" ng-click="goExternal('//watchout.tw')">
       <div class="ui horizontal bulleted list">
@@ -94,6 +116,6 @@
          </div>
       </div>
 </div>
-
+-->
 </body>
 </html>

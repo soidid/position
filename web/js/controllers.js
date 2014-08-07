@@ -7,7 +7,7 @@ var ivodControllers = angular.module('ivodControllers',[
 ivodControllers.controller('positionCtrl', ['$state','$location','$scope', 'lyData','$http',
   function ($state,$location,$scope,lyData, $http) {
     
-
+    
     $scope.setMargin = function(){
        console.log("SET MARGIN");
        var nav_height = $("#nav_segment").css("height");
@@ -16,12 +16,14 @@ ivodControllers.controller('positionCtrl', ['$state','$location','$scope', 'lyDa
           $("#main_content").css("margin-top",nav_height);
        }
     };
-
-
+    
     $( window ).resize(function() {
        //console.log($( window ).width());
        $scope.setMargin();
     });
+
+
+    
 
     $scope.legislators = [];
     if($scope.legislators.length==0){
@@ -45,26 +47,32 @@ ivodControllers.controller('positionCtrl', ['$state','$location','$scope', 'lyDa
 
     $scope.$state = $state;
 
-    $scope.showContact = true;
-    $scope.toggleContact = function(){
-        $scope.showContact = !$scope.showContact;
-    };
-
+    
     $scope.legClick = function(id){
       $scope.data = {};
       $scope.data = $scope.legislators[id];
       $scope.currentActiveLeg = id;
+      $scope.setMargin();
 
     };
     $scope.isActiveLeg = function(id){
       return $scope.currentActiveLeg === id;
-    }
+
+    };
 
     $scope.goback = function(){
       var body = $("html, body");
       body.animate({scrollTop:0}, '500', 'swing');
 
     };
+
+    $scope.isActiveParty = function(p){
+      return $scope.currentActiveParty === p;
+    };
+    $scope.setActiveParty = function(p){
+      $scope.currentActiveParty = p;
+    };
+
 
 
 
@@ -226,19 +234,50 @@ ivodControllers.controller('aboutCtrl', ['$location', '$scope', 'lyData','$http'
 ivodControllers.controller('navCtrl', ['$scope', '$state',
   function ($scope, $state) {
      $scope.$state = $state;
-     $scope.goPetition = function(){
 
+     ///////////////
+     var querySelector = document.querySelector.bind(document);
+     var navdrawerContainer = querySelector('.navdrawer-container');
+     var body = document.body;
+     var appbarElement = querySelector('.app-bar');
+     var menuBtn = querySelector('.menu');
+     var main = querySelector('main');
 
-     var body = $("html, body");
-     var target = $("#petition_component").offset().top - 50;
-
-     //console.log("goPetition:"+target);
-     body.animate({scrollTop:target}, 1000, 'swing');
-
-
-
-
+     $scope.closeMenu = function() {
+       body.classList.remove('open');
+       appbarElement.classList.remove('open');
+       navdrawerContainer.classList.remove('open');
      };
+
+     $scope.toggleMenu = function() {
+       console.log("toggle");
+       body.classList.toggle('open');
+       appbarElement.classList.toggle('open');
+       navdrawerContainer.classList.toggle('open');
+     };
+
+     //main.addEventListener('click', closeMenu);
+     //menuBtn.addEventListener('click', toggleMenu);
+     /*
+     navdrawerContainer.addEventListener('click', function (event) {
+       if (event.target.nodeName === 'A' || event.target.nodeName === 'LI') {
+         closeMenu();
+       }
+     });*/
+   
+     ///////////////
+     $scope.goPetition = function(){
+        $scope.closeMenu();
+
+        var body = $("html, body");
+        var target = $("#petition_component").offset().top - 50;
+   
+        //console.log("goPetition:"+target);
+        body.animate({scrollTop:target}, 1000, 'swing');
+
+   
+     };
+
   }
 
 ]);

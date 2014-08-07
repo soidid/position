@@ -312,11 +312,13 @@ p, li {
 #nav_segment{
   z-index: 100;
   padding: 5px;
-  min-height: 60px;
+  min-height: 50px;
 
   background: white;
   border-bottom: 1px solid rgb(220,220,220);
   padding-bottom: 10px;
+
+  padding-top: 15px;
 
 }
 .f-nav{  /* To fix main menu container */
@@ -385,6 +387,9 @@ p, li {
 .avatar_item_active {
   background: rgb(230,230,230);
   border: 1px solid rgb(130,130,130);
+}
+.avatar_item_top_initial {
+  min-height: 50px;
 }
 .avatar_item_top{
   cursor: pointer;
@@ -511,8 +516,8 @@ p, li {
 .about_section {
   /* https://www.flickr.com/photos/69214385@N04/8669592973 */
   background: url(../images/about-bg.jpg) 50% 0 repeat fixed; min-height: 400px;
-  background-size: 100% auto;
-  margin-top: 40px;
+  /* background-size: 100% auto; */
+  background-size: auto 100%; 
   padding: 20px;
   margin-bottom: 40px;
   position: relative;
@@ -811,6 +816,268 @@ p, li {
 
 }
 
+/*
+ * Web Starter Kit
+ *
+ * Multi-screen layout styles for your page. Brought to you by the
+ * Web Starter Kit team.
+ *
+ */
+body.open {
+  overflow: hidden;
+}
+.app-bar {
+  display: block;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(50,53,48);
+  overflow: hidden;
+  z-index: 1;
+}
+.app-bar-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  position: relative;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 0 auto;
+}
+
+.app-bar.open,
+.app-bar.open ~ main {
+  -webkit-transform: translate(250px, 0);
+          transform: translate(250px, 0);
+}
+.app-bar-actions {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  z-index: 2;
+}
+.menu { /* menu */
+  width: 30px;
+  height: 20px;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  display: inline-block;
+}
+.promote-layer {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.navdrawer-container {
+  
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  height: 100%;
+  
+  color: #fefefe;
+  -webkit-transform: translate(-250px, 0);
+          transform: translate(-250px, 0);
+  overflow-y: auto;
+  background-color: rgb(50,53,48);
+  /*
+  background-color: rgb(50,53,48);
+  position: fixed;
+  top:0px;
+  z-index: 300;
+  width: 100%;*/
+}
+
+.navdrawer-container.open {
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.app-bar, .navdrawer-container, main {
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+          transition: transform 0.3s ease-out;
+}
+
+.navdrawer-container ul li a {
+  height: auto;
+  padding: 17px 20px;
+  line-height: 1.4;
+}
+
+.navdrawer-container ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.navdrawer-container ul li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  -webkit-transition: background-color 0.2s ease-out;
+          transition: background-color 0.2s ease-out;
+  white-space: nowrap;
+}
+
+.navdrawer-container ul li {
+  border-bottom-style: solid;
+  border-width: 1px;
+  /* border-color: white; */
+  border-color: rgb(230,230,230);
+  padding: 0;
+}
+
+.navdrawer-container ul li::before {
+  content: none;
+}
+
+.navdrawer-container ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navdrawer-container ul li a:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+  outline: 0;
+}
+
+.navdrawer-container ul li a:active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+main {
+  margin: 40px auto;
+
+  /* Height of the header */
+  min-height: 100%;
+}
+
+/** Larger Screens - desktops and tablets **/
+@media all and (min-width: 990px) {
+  .app-bar {
+    position: relative;
+  }
+
+  .app-bar.open,
+  .app-bar.open ~ main {
+    -webkit-transform: translate(0px, 0);
+            transform: translate(0px, 0);
+  }
+
+  .app-bar-container {
+    display: block;
+    max-width: 864px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    background-color: rgb(50,53,48);
+  }
+
+  .app-bar-actions {
+    float: right;
+  }
+
+  .app-bar::after {
+    content: ' ';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  nav {
+    display: block;
+  }
+
+  .navdrawer-container {
+    /*
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 130px;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+    -webkit-transition: none;
+            transition: none;
+    overflow-y: auto;
+    */
+    
+    z-index: 300;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    background-color: rgb(50,53,48);
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+ 
+  }
+
+  .navdrawer-container ul {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    /* max-width: 864px; */
+    margin: 0 auto;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .navdrawer-container ul li {
+    border: none;
+  }
+
+  
+  body {
+    overflow-y: scroll;
+  }
+
+  .navdrawer-container {
+    /*
+    position: relative;
+    margin-top: 0;
+    */
+  }
+  .about_section {
+    background-size: 100% auto; 
+  }
+}/* --- end of larger screen  --- */
+
+.party_nemu {
+  display: relative;
+  color: black;
+  font-size: 14px;
+  text-align: center;
+}
+.party_nemu ul {
+  display: inline-block;
+} 
+.party_nemu li {
+  display: inline-block;
+  cursor: pointer;
+  border-right: 1px solid rgb(230,230,230);
+  padding:10px;
+}
+.party_nemu .party_menu_active{
+  border-top: 2px solid rgb(50,53,48);
+  background: rgb(240,240,240);
+}
+.party_nemu a {
+  height: 25px;
+  width: 100%;
+  color: rgb(50,53,48);
+}
 
 
 

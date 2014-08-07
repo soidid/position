@@ -1,19 +1,14 @@
 <div class="ui two column divided grid" id="legi_main_segment">
-<center>
-<div class="ui small menu">
-  <a class="item" 
-  ui-sref-active="active"
-  ng-repeat="p in parties" ui-sref="{{p}}">{{$state.get(p).data.text}}</a>
 
+
+<div class="party_nemu">
+  <ul>
+    <li ng-repeat="p in parties" 
+        ng-class="{'party_menu_active':isActiveParty(p)}" ng-click="setActiveParty(p)">
+      <a ui-sref-active="active" ui-sref="{{p}}">{{$state.get(p).data.text}}</a></li>
+  </ul>
 </div>
-</center>
-<!--
-<div class="progress">
-                  <div class="bar"
-                  style="width:
-{{(legislators| filter:query | filter:{'state':'for','party':party}).length/(legislators | filter:query | filter:{'party':party}).length * 100}}%;"></div>
-              </div>
--->
+<!-- -->
   <div class="three column row">
     
     <div class="column" ng-repeat="c in categories">
