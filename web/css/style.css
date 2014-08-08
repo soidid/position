@@ -936,6 +936,7 @@ body.open {
   /* border-color: white; */
   border-color: rgba(250,253,248,0.2);
   padding: 0;
+
 }
 
 .navdrawer-container ul li::before {
@@ -1038,6 +1039,7 @@ main {
 
   .navdrawer-container ul li {
     border: none;
+    display: inline-block;
   }
 
   
