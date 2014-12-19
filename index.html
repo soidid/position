@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html ng-app="ivodApp">
+  <head>
+    <!-- Standard Meta -->
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta property="fb:admins" content="573597882" />
+    <!-- Site Properities -->
+
+    <title>99119 搶救消防員</title>
+    <meta content="99119 搶救消防員" property="og:site_name" />
+    <meta content="99119 搶救消防員" property="og:title" />
+    <meta content="消防員工作權益促進會在此誠摯地邀請您一同關心消防員的勞動權益。我們提出以下訴求：1. 立法改善消防員不合理工時與勤務內容 。2. 要求消防署提出具體補充消防人力的計劃，並編列預算改善基層消防員的裝配備。3. 立法促使懲處機制透明化，禁止以「內部條款」剝奪基層消防員言論、集會與結社等自由的基本人權。4. 立法開放消防員籌組工會" property="og:description"/>
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/packaged/css/semantic.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+    <script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+    <script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.js"></script>
+    <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+    <script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
+
+    <script type='text/javascript' src="/packaged/javascript/semantic.min.js"></script>
+
+    <script type='text/javascript' src='//fb.me/react-0.11.1.js'></script>
+    <script type='text/javascript' src='//cdn.firebase.com/js/client/1.0.18/firebase.js'></script>
+    <script type="text/javascript" src='//reactfiretodoapp.firebaseapp.com/bower_components/reactfire/dist/reactfire.min.js'></script>
+    <script type='text/javascript' src="//cdn.firebase.com/js/simple-login/1.6.1/firebase-simple-login.js"></script>
+    <script type='text/javascript' src="/app.js"></script>
+
+</head>
+<body>
+
+<!--
+<div class="ui inverted menu" ng-controller="navCtrl" style="height:40px;" id="top_nav_menu">
+
+  <a class="item" ui-sref="about" ui-sref-active="active">
+    99119 搶救消防員
+  </a>
+  <a class="item" ui-sref="sign" ui-sref-active="active" ng-click="goPetition()">
+    加入連署
+  </a>
+  <a class="item" ui-sref="position" ui-sref-active="active">
+    立委表態
+  </a>
+  <a class="item" ui-sref="data" ui-sref-active="active">
+    統計方式
+  </a>
+   <div class="right menu">
+      <a class="item"><div class="fb-like" data-href="http://fireman.today" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div></a>
+   </div>
+</div>
+-->
+
+<div ng-controller="navCtrl" >
+  <header class="app-bar promote-layer">
+        <div class="app-bar-container">
+          <div class="menu" ng-click="toggleMenu()"><i class="reorder icon"></i></div>
+          <section class="app-bar-actions">
+          <!-- Put App Bar Buttons Here -->
+          </section>
+        </div>
+  </header>
+  <nav class="navdrawer-container promote-layer">
+    <ul>
+      <li><a ui-sref="about" ui-sref-active="active" ng-click="closeMenu()">99119 搶救消防員</a></li>
+      <li><a ui-sref="sign" ui-sref-active="active" ng-click="goPetition()">加入連署</a></li>
+      <li><a ui-sref="position" ui-sref-active="active" ng-click="closeMenu()">立委表態</a></li>
+      <li><a ui-sref="data" ui-sref-active="active" ng-click="closeMenu()">統計方式</a></li>
+    </ul>
+  </nav>
+  <main><div ui-view></div></main>
+</div>
+<!-- ////////////  -->
+
+
+   
+
+
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=260429800815048&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48524226-5', 'fireman.today');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+
+<div id="fb-root"></div>
+<!-- -->
+<div class="footer" ng-controller="footCtrl">
+      <img class="footer_logo" src="images/watchout_logo.png" ng-click="goExternal('//watchout.tw')">
+      <div class="ui horizontal bulleted list">
+         <div class="item" ng-click="go('contact')">
+          聯絡我們
+         </div>
+         <div class="item" ng-click="goExternal('//musou.tw')">
+          國會無雙
+         </div>
+         <div class="item" ng-click="goExternal('//wethepeople.tw')">
+          市長，給問嗎
+         </div>
+      </div>
+</div>
+
+</body>
+</html>
