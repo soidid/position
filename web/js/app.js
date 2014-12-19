@@ -16,7 +16,7 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       data: {
         text: '全部'
       },
-      templateUrl: '/partials/position.html',
+      templateUrl: 'partials/position.html',
       controller: 'positionCtrl'
     }).
       state('position.kmt',{
@@ -24,7 +24,7 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       data: {
         text: '中國國民黨'
       },
-      templateUrl: '/partials/position.html',
+      templateUrl: 'partials/position.html',
       controller: 'positionCtrl'
     }).
       state('position.dpp',{
@@ -32,7 +32,7 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       data: {
         text: '民主進步黨'
       },
-      templateUrl: '/partials/position.html',
+      templateUrl: 'partials/position.html',
       controller: 'positionCtrl'
     }).
       state('position.pfp',{
@@ -40,7 +40,7 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       data: {
         text: '親民黨'
       },
-      templateUrl: '/partials/position.html',
+      templateUrl: 'partials/position.html',
       controller: 'positionCtrl'
     }).
       state('position.tsu',{
@@ -48,7 +48,7 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       data: {
         text: '台灣團結聯盟'
       },
-      templateUrl: '/partials/position.html',
+      templateUrl: 'partials/position.html',
       controller: 'positionCtrl'
     }).
       state('position.npsu',{
@@ -56,7 +56,7 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       data: {
         text: '無黨團結聯盟'
       },
-      templateUrl: '/partials/position.html',
+      templateUrl: 'partials/position.html',
       controller: 'positionCtrl'
     }).
       state('position.no-party',{
@@ -64,36 +64,36 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       data: {
         text: '無黨籍'
       },
-      templateUrl: '/partials/position.html',
+      templateUrl: 'partials/position.html',
       controller: 'positionCtrl'
     }).
       state('about',{
       url: '/',
-      templateUrl: '/partials/about.html',
+      templateUrl: 'partials/about.html',
       controller: 'aboutCtrl'
     }).
       state('sign',{
       url: '/sign',
-      templateUrl: '/partials/about.html',
+      templateUrl: 'partials/about.html',
       controller: 'aboutCtrl'
     }).
       state('data',{
       url: '/data',
-      templateUrl: '/partials/data.html'
+      templateUrl: 'partials/data.html'
     }).
       state('contact',{
       url: '/contact',
-      templateUrl: '/partials/contact.html',
+      templateUrl: 'partials/contact.html',
       controller: 'aboutCtrl'
     }).
       state('legi',{
       url: '/legi',
-      templateUrl: '/partials/legi.html',
+      templateUrl: 'partials/legi.html',
       controller: 'legCtrl'
     }).
       state('legi.legId',{
       url: '/:legId',
-      templateUrl: '/partials/legi.html',
+      templateUrl: 'partials/legi.html',
       controller: 'legCtrl'
     });
 
