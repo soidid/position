@@ -9,7 +9,7 @@ var ivodApp = angular.module("ivodApp", [
 ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
   function($stateProvider, $urlRouterProvider, $locationProvider){
     $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise("/position");
+    $urlRouterProvider.otherwise("/position/all");
     $stateProvider.
       state('position',{
       url: '/position/all',
@@ -82,7 +82,7 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       templateUrl: '/partials/data.html'
     }).
       state('contact',{
-      url: '/contact',
+      url: '/position/contact',
       templateUrl: '/partials/contact.html',
       controller: 'aboutCtrl'
     }).
