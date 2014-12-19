@@ -9,10 +9,10 @@ var ivodApp = angular.module("ivodApp", [
 ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
   function($stateProvider, $urlRouterProvider, $locationProvider){
     $locationProvider.html5Mode(false);
-    $urlRouterProvider.otherwise("/position/all");
+    $urlRouterProvider.otherwise("/");
     $stateProvider.
       state('position',{
-      url: '/position/all',
+      url: '/all',
       data: {
         text: '全部'
       },
@@ -20,7 +20,7 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       controller: 'positionCtrl'
     }).
       state('position.kmt',{
-      url: '/position/kmt',
+      url: '/kmt',
       data: {
         text: '中國國民黨'
       },
@@ -28,7 +28,7 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       controller: 'positionCtrl'
     }).
       state('position.dpp',{
-      url: '/position/dpp',
+      url: '/dpp',
       data: {
         text: '民主進步黨'
       },
@@ -36,7 +36,7 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       controller: 'positionCtrl'
     }).
       state('position.pfp',{
-      url: '/position/pfp',
+      url: '/pfp',
       data: {
         text: '親民黨'
       },
@@ -44,7 +44,7 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       controller: 'positionCtrl'
     }).
       state('position.tsu',{
-      url: '/position/tsu',
+      url: '/tsu',
       data: {
         text: '台灣團結聯盟'
       },
@@ -52,7 +52,7 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       controller: 'positionCtrl'
     }).
       state('position.npsu',{
-      url: '/position/npsu',
+      url: '/npsu',
       data: {
         text: '無黨團結聯盟'
       },
@@ -60,7 +60,7 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       controller: 'positionCtrl'
     }).
       state('position.no-party',{
-      url: '/position/no-party',
+      url: '/no-party',
       data: {
         text: '無黨籍'
       },
@@ -68,31 +68,31 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       controller: 'positionCtrl'
     }).
       state('about',{
-      url: '/position',
+      url: '/',
       templateUrl: '/partials/about.html',
       controller: 'aboutCtrl'
     }).
       state('sign',{
-      url: '/position/sign',
+      url: '/sign',
       templateUrl: '/partials/about.html',
       controller: 'aboutCtrl'
     }).
       state('data',{
-      url: '/position/data',
+      url: '/data',
       templateUrl: '/partials/data.html'
     }).
       state('contact',{
-      url: '/position/contact',
+      url: '/contact',
       templateUrl: '/partials/contact.html',
       controller: 'aboutCtrl'
     }).
       state('legi',{
-      url: '/position/legi',
+      url: '/legi',
       templateUrl: '/partials/legi.html',
       controller: 'legCtrl'
     }).
       state('legi.legId',{
-      url: '/position/:legId',
+      url: '/:legId',
       templateUrl: '/partials/legi.html',
       controller: 'legCtrl'
     });
