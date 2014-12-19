@@ -12,7 +12,7 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     $urlRouterProvider.otherwise("/");
     $stateProvider.
       state('position',{
-      url: '/all',
+      url: '/',
       data: {
         text: '全部'
       },
