@@ -73,7 +73,7 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       controller: 'aboutCtrl'
     }).
       state('sign',{
-      url: 'sign',
+      url: '/sign',
       templateUrl: '/position/partials/about.html',
       controller: 'aboutCtrl'
     }).
