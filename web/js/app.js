@@ -68,7 +68,7 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       controller: 'positionCtrl'
     }).
       state('about',{
-      url: '/',
+      url: '/about',
       templateUrl: '/position/partials/about.html',
       controller: 'aboutCtrl'
     }).
@@ -78,21 +78,21 @@ ivodApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
       controller: 'aboutCtrl'
     }).
       state('data',{
-      url: 'data',
+      url: '/data',
       templateUrl: '/position/partials/data.html'
     }).
       state('contact',{
-      url: 'contact',
+      url: '/contact',
       templateUrl: '/position/partials/contact.html',
       controller: 'aboutCtrl'
     }).
       state('legi',{
-      url: 'legi',
+      url: '/legi',
       templateUrl: '/position/partials/legi.html',
       controller: 'legCtrl'
     }).
       state('legi.legId',{
-      url: ':legId',
+      url: '/:legId',
       templateUrl: '/position/partials/legi.html',
       controller: 'legCtrl'
     });
